@@ -18,6 +18,7 @@ else:
 class SumoBaseEnvironment:
     def __init__(self, 
                 env_dir,
+                out_dir,
                 use_gui=False,
                 num_seconds=20000, extra_modules = []):
 
@@ -61,8 +62,13 @@ class SumoBaseEnvironment:
             self._sumo_binary = sumolib.checkBinary('sumo')
 
         # Create output directory for logging and results
-        self.output_dir = "./outputs/" + str(datetime.datetime.now()) + "/"
-        os.makedirs(self.output_dir)
+        if out_dir == False:
+            self.output_dir = "./outputs/" + str(datetime.datetime.now()) + "/"
+        else:
+            self.output_dir=out_dir
+            if not os.path.exists(self.output_dir):
+            #self.output_dir = out_dir + str(datetime.datetime.now()) + "/"
+                os.makedirs(self.output_dir)
 
 
     def reset(self):

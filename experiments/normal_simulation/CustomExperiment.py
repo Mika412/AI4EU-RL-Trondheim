@@ -9,7 +9,7 @@ from environment.modules.EmissionsRendererModule import EmissionsRendererModule
 from environment.modules.InductionLoopsModule import InductionLoopsModule
 
 class CustomExperiment(SumoBaseEnvironment):
-	def __init__(self, env_dir, use_gui=False,num_seconds=20000):
+	def __init__(self, env_dir, out_dir=False, use_gui=False,num_seconds=20000):
 		super().__init__(env_dir, use_gui, num_seconds)
 
 
@@ -42,5 +42,5 @@ class CustomExperiment(SumoBaseEnvironment):
 		print("Took: ", end - start)
 
 if __name__ == "__main__":
-	env = CustomExperiment(env_dir="simulations/small_extended/",use_gui=False,num_seconds=86400)
+	env = CustomExperiment(env_dir="simulations/small_extended/",out_dir="outputs/small_extended/",use_gui=False,num_seconds=86400)
 	env.run()
