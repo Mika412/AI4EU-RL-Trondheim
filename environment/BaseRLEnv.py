@@ -1,6 +1,6 @@
 from abc import abstractmethod
 
-from ray.rllib import MultiAgentEnv
+from ray.rllib import ExternalEnv
 
 from .BaseEnv import SumoBaseEnvironment
 import matplotlib.pyplot as plt
@@ -8,7 +8,8 @@ from statistics import mean
 import math
 from itertools import islice 
 
-class SumoRLBaseEnvironment(MultiAgentEnv, SumoBaseEnvironment):
+import gym
+class SumoRLBaseEnvironment(gym.Env, SumoBaseEnvironment):
 
 	def __init__(self, env_dir, use_gui=False, num_seconds=20000, action_every_steps=1):
 		super().__init__(env_dir, use_gui, num_seconds)
@@ -22,7 +23,6 @@ class SumoRLBaseEnvironment(MultiAgentEnv, SumoBaseEnvironment):
 
 	def reset(self):
 		if self.is_connected:
-			self.setActive()
 			(total_reward, emissions_reward, halted_reward) = self.episode_rewards()
 			self.epoch_total_rewards.append(total_reward)
 			self.epoch_rewards.append(emissions_reward)
@@ -63,6 +63,7 @@ class SumoRLBaseEnvironment(MultiAgentEnv, SumoBaseEnvironment):
 			axs[2].set_ylim(bottom=0)
 
 			fig.savefig(self.output_dir+"scores.png")
+			plt.close(fig)
 		SumoBaseEnvironment.reset(self)
 		self._reset()
 		# print("Reset everything")
@@ -93,17 +94,16 @@ class SumoRLBaseEnvironment(MultiAgentEnv, SumoBaseEnvironment):
 
 
 	def step(self, actions):
-		self.setActive()
-
 		self.step_actions(actions)
 		
 		for i in range(int(max(self.action_every_steps,1)/self.timestep_length_seconds)):
 			SumoBaseEnvironment.step(self)
 		self.update_reward()
-
 		observation = self.compute_observations()
+  
 		reward = self.compute_rewards()
-		return observation, reward, self.done, {}
+  
+		return observation, reward, self.is_done, {}
 
 	@abstractmethod
 	def step_actions(self, action):

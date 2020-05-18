@@ -15,10 +15,10 @@ Detector ID;Detector Name;Detector Lane;Direction;Detector reference;SUMO Lane I
 06970V72811;KROPPAN BRU;4;Heimdal;EV6 S75D1 m2632;81064215_1;in-between;0;40;
 06970V72811;KROPPAN BRU;5;Trondheim;EV6 S75D1 m2632;18668209#1_2;in-between;0;40;
 06970V72811;KROPPAN BRU;6;Heimdal;EV6 S75D1 m2632;81064215_2;in-between;0;40;
-10236V72161;Innherredsveien ved Bakke kirke;1;Lade;FV6690 S1D1 m468;328061951#3_0;in-between;0;40;
-10236V72161;Innherredsveien ved Bakke kirke;2;Sentrum;FV6690 S1D1 m468;21063788#0_0;in-between;0;40;
-10236V72161;Innherredsveien ved Bakke kirke;3;Lade;FV6690 S1D1 m468;328061951#3_1;in-between;0;40;
-10236V72161;Innherredsveien ved Bakke kirke;4;Sentrum;FV6690 S1D1 m468;21063788#0_1;in-between;0;40;
+10236V72161;Innherredsveien ved Bakke kirke;1;Lade;FV6690 S1D1 m468;21063788#0_0;in-between;0;40;
+10236V72161;Innherredsveien ved Bakke kirke;2;Sentrum;FV6690 S1D1 m468;328061951#3_0;in-between;0;40;
+10236V72161;Innherredsveien ved Bakke kirke;3;Lade;FV6690 S1D1 m468;21063788#0_1;in-between;0;40;
+10236V72161;Innherredsveien ved Bakke kirke;4;Sentrum;FV6690 S1D1 m468;328061951#3_1;in-between;0;40;
 16219V72812;Prinsens gt nord for Elgeseter bru;1;Fjordgata;FV6690 S3D1 m623;-301077360_0;in-between;0;40;
 16219V72812;Prinsens gt nord for Elgeseter bru;2;Samfundet;FV6690 S3D1 m623;301077360_0;in-between;0;40;
 16219V72812;Prinsens gt nord for Elgeseter bru;3;Fjordgata;FV6690 S3D1 m623;-301077360_1;in-between;0;40;
@@ -36,7 +36,7 @@ Detector ID;Detector Name;Detector Lane;Direction;Detector reference;SUMO Lane I
 21571V2394246;Strindheimtunnelen vestgående løp;1;Nyhavna;RV706 S2D1 m3938;290003278_0;in-between;0;40;
 21571V2394246;Strindheimtunnelen vestgående løp;3;Nyhavna;RV706 S2D1 m3938;290003278_1;in-between;0;40;
 21801V72158;Brattørbrua;1;Trondheim S.;EV6 S75D140 m187;4981346_0;in-between;0;40;
-21801V72158;Brattørbrua;2;Kjøpmannsgata;EV6 S75D140 m187;-29088844_0;in-between;0;40;
+21801V72158;Brattørbrua;2;Kjøpmannsgata;EV6 S75D140 m187;-4981346_0;in-between;0;40;
 27372V72852;Søndre Ilevollen;1;Byåsen;FV6650 S1D1 m1149;224470082_0;in-between;0;40;
 27372V72852;Søndre Ilevollen;2;Sentrum;FV6650 S1D1 m1149;-224470082_0;in-between;0;40;
 30904V72218;MOHOLT RAMPE 1;1;;EV6 S76D1 m3523 KD4 m75;4999142_0;in-between;0;40;
@@ -54,10 +54,10 @@ Detector ID;Detector Name;Detector Lane;Direction;Detector reference;SUMO Lane I
 44656V72812;Elgeseter gate ved Abels gate;2;Heimdal;FV6690 S3D1 m1432;51972126#2_0;in-between;0;40;
 44656V72812;Elgeseter gate ved Abels gate;3;Sentrum;FV6690 S3D1 m1432;-51972126#2_1;in-between;0;40;
 44656V72812;Elgeseter gate ved Abels gate;4;Heimdal;FV6690 S3D1 m1432;51972126#2_1;in-between;0;40;
-44660V72811;Moholt ved Vegamot;1;TUNGA, HF FRA TUNGA;EV6 S76D1 m3847;19750535_0;in-between;0;40;
-44660V72811;Moholt ved Vegamot;2;SLUPPEN, HF FRA SLUPPEN;EV6 S76D1 m3847;192071666_0;in-between;0;40;
-44660V72811;Moholt ved Vegamot;3;TUNGA, HF FRA TUNGA;EV6 S76D1 m3847;19750535_1;in-between;0;40;
-44660V72811;Moholt ved Vegamot;4;SLUPPEN, HF FRA SLUPPEN;EV6 S76D1 m3847;192071666_1;in-between;0;40;
+44660V72811;Moholt ved Vegamot;1;TUNGA; HF FRA TUNGA;EV6 S76D1 m3847;19750535_0;in-between;0;40
+44660V72811;Moholt ved Vegamot;2;SLUPPEN; HF FRA SLUPPEN;EV6 S76D1 m3847;192071666_0;in-between;0;40
+44660V72811;Moholt ved Vegamot;3;TUNGA; HF FRA TUNGA;EV6 S76D1 m3847;19750535_1;in-between;0;40
+44660V72811;Moholt ved Vegamot;4;SLUPPEN; HF FRA SLUPPEN;EV6 S76D1 m3847;192071666_1;in-between;0;40
 46684V1842951;MARIENBORGTUNNELEN;1;Ila;RV706 S1D1 m4524;60472440_0;in-between;0;40;
 46684V1842951;MARIENBORGTUNNELEN;2;Selsbakk;RV706 S1D1 m4524;60672590_0;in-between;0;40;
 63028V72219;MOHOLT RAMPE 2;1;Eberg;EV6 S76D1 m3523 KD3 m121;4999143_0;in-between;0;40;
@@ -83,7 +83,7 @@ Detector ID;Detector Name;Detector Lane;Direction;Detector reference;SUMO Lane I
 88356V72157;Jernbanebrua;2;Fjordgata;FV6692 S1D1 m243;-505301148_2;in-between;0;40;
 88356V72157;Jernbanebrua;4;Fjordgata;FV6692 S1D1 m243;-505301148_1;in-between;0;40;
 88356V72157;Jernbanebrua;6;Fjordgata;FV6692 S1D1 m243;-505301148_0;in-between;0;40;
-94210V2411536;Grillstadtunnelen vest;1;HF FRA Stjørdal, Stjørdal;EV6 S76D1 m7308;190438939_0;in-between;0;40;
-94210V2411536;Grillstadtunnelen vest;2;Trondheim, HF FRA Trondheim;EV6 S76D1 m7308;282657544_0;in-between;0;40;
-94210V2411536;Grillstadtunnelen vest;3;HF FRA Stjørdal, Stjørdal;EV6 S76D1 m7308;190438939_1;in-between;0;40;
-94210V2411536;Grillstadtunnelen vest;4;Trondheim, HF FRA Trondheim;EV6 S76D1 m7308;282657544_1;in-between;0;40;
+94210V2411536;Grillstadtunnelen vest;1;HF FRA Stjørdal; Stjørdal;EV6 S76D1 m7308;190438939_0;in-between;0;40
+94210V2411536;Grillstadtunnelen vest;2;Trondheim; HF FRA Trondheim;EV6 S76D1 m7308;282657544_0;in-between;0;40
+94210V2411536;Grillstadtunnelen vest;3;HF FRA Stjørdal; Stjørdal;EV6 S76D1 m7308;190438939_1;in-between;0;40
+94210V2411536;Grillstadtunnelen vest;4;Trondheim; HF FRA Trondheim;EV6 S76D1 m7308;282657544_1;in-between;0;40

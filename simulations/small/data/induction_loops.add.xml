@@ -1,3 +1,16 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:59e032e62837de311381a58c392e2dd4a888de68938b34d855acae43daa32930
-size 1784
+<additional>
+<inductionLoop id="81077V72158_1" lane="37524433#0_0" pos="0" type="in-between" freq="1" file="inductiondetections.tmp.xml"/>
+<inductionLoop id="81077V72158_2" lane="93266476#0_0" pos="0" type="in-between" freq="1" file="inductiondetections.tmp.xml"/>
+<inductionLoop id="81077V72158_3" lane="37524433#0_1" pos="0" type="in-between" freq="1" file="inductiondetections.tmp.xml"/>
+<inductionLoop id="81077V72158_4" lane="93266476#0_1" pos="0" type="in-between" freq="1" file="inductiondetections.tmp.xml"/>
+<inductionLoop id="88356V72157_1" lane="505301148_0" pos="0" type="in-between" freq="1" file="inductiondetections.tmp.xml"/>
+<inductionLoop id="88356V72157_2" lane="-505301148_2" pos="0" type="in-between" freq="1" file="inductiondetections.tmp.xml"/>
+<inductionLoop id="88356V72157_4" lane="-505301148_1" pos="0" type="in-between" freq="1" file="inductiondetections.tmp.xml"/>
+<inductionLoop id="88356V72157_6" lane="-505301148_0" pos="0" type="in-between" freq="1" file="inductiondetections.tmp.xml"/>
+<inductionLoop id="21801V72158_1" lane="4981346_0" pos="0" type="in-between" freq="1" file="inductiondetections.tmp.xml"/>
+<inductionLoop id="21801V72158_2" lane="-29088844_0" pos="0" type="in-between" freq="1" file="inductiondetections.tmp.xml"/>
+<inductionLoop id="16219V72812_1" lane="-301077360_0" pos="0" type="in-between" freq="1" file="inductiondetections.tmp.xml"/>
+<inductionLoop id="16219V72812_2" lane="301077360_0" pos="0" type="in-between" freq="1" file="inductiondetections.tmp.xml"/>
+<inductionLoop id="16219V72812_3" lane="-301077360_1" pos="0" type="in-between" freq="1" file="inductiondetections.tmp.xml"/>
+<inductionLoop id="16219V72812_4" lane="301077360_1" pos="0" type="in-between" freq="1" file="inductiondetections.tmp.xml"/>
+</additional>
