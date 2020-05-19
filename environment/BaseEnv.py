@@ -105,7 +105,7 @@ class SumoBaseEnvironment:
         if self.use_gui:
             sumo_cmd.append('--start')
 
-        self.traci.start(sumo_cmd, label=self.simulationName)
+        self.traci.start(sumo_cmd)
         self.is_connected = True
         self.traci.simulationStep()
 

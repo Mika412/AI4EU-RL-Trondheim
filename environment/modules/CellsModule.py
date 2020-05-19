@@ -44,17 +44,16 @@ class CellsModule(BaseModule):
 		self.cell_width  = cell_width
 		self.xCount = int(cell_max_width/self.cell_width)
 		self.yCount = int(cell_max_height/self.cell_height)
-
 		self.cells = {}
 		self.cells_to_edges = {}
 		self.edge_to_cells = {}
-		self.cells_id_matrix = np.empty(shape=(self.xCount, self.yCount), dtype="S10")
-
+		self.cells_id_matrix = np.empty(shape=(self.yCount, self.xCount), dtype="S10")
 
 		# Edges
 		self.unmutable_edges = unmutable_edges
 		self.closed_cells   = []
 		self.closed_edges   = []
+
 
 		self.load_cells()
 		self.load_cell_edges()
@@ -72,9 +71,9 @@ class CellsModule(BaseModule):
 			bottomX, bottomY    = [float(x) for x in shape[0].split(',')]
 			topX, topY          = [float(x) for x in shape[2].split(',')]
 			xPos = int(math.floor(bottomX/self.cell_width))
-			yPos = self.yCount - 1 - int(math.floor(bottomY/self.cell_height))
+			yPos = int(math.floor(bottomY/self.cell_height))
 			self.cells[cellId] = Cell(cellId, bottomX, bottomY, topX, topY, xPos, yPos)
-			self.cells_id_matrix[xPos, yPos] = cellId
+			self.cells_id_matrix[yPos, xPos] = cellId
 
 	def load_cell_edges(self):
 		parser = etree.XMLParser(recover=True)
