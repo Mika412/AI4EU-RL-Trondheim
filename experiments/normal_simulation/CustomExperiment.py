@@ -35,7 +35,8 @@ class CustomExperiment(SumoBaseEnvironment):
 
 		self.reset()
 		while not self.is_done:
-			self.step()
+                        print(self.sim_step)
+                        self.step()
 
 		end = time.time()
 		print("Took: ", end - start)
