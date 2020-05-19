@@ -94,11 +94,11 @@ class EmissionsRendererModule(BaseModule):
 		_colors = viridis(np.linspace(0, 1, self.max_values['NOx']))
 
 		_colors[:, :]             	= EmissionColors.hazardous
-		_colors[:int(40/24), :]    	= EmissionColors.vunhealty
-		_colors[:int(90/24), :]    	= EmissionColors.unhealthy
+		_colors[:int(340/24), :]    	= EmissionColors.vunhealty
+		_colors[:int(230/24), :]    	= EmissionColors.unhealthy
 		_colors[:int(120/24), :]    = EmissionColors.moderate
-		_colors[:int(230/24), :]    = EmissionColors.unhealthy_special
-		_colors[:int(340/24), :]    = EmissionColors.good
+		_colors[:int(90/24), :]    = EmissionColors.unhealthy_special
+		_colors[:int(40/24), :]    = EmissionColors.good
 		return ListedColormap(_colors)
 
 	@property
