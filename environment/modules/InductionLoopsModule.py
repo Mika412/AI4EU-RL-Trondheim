@@ -6,7 +6,7 @@ import xml.etree.ElementTree as ET
 import csv
 
 sys.path.append(os.path.join(os.environ['SUMO_HOME'], 'tools'))
-import traci
+import libsumo as traci
 
 class InductionLoopsModule(BaseModule):
 	

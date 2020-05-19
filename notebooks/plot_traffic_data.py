@@ -20,7 +20,7 @@ class SensorData:
 sensor_loc = pd.read_csv('../sensors/sensor_location.csv',delimiter=';')
 #Read simulation data, can be done outside of loop because it has all sensor data
 # data_simul = pd.read_csv('../outputs/2020-04-27 16:06:44.356885/simulations/2020-04-27 16:06:44.356959/inductiondetections.csv', delimiter=',', engine='python')
-data_simul = pd.read_csv('../outputs/small_extended/inductiondetections.csv', delimiter=',', engine='python')
+data_simul = pd.read_csv('../outputs/2020-04-29 12:50:23.028100/simulations/2020-04-29 12:50:23.028199/inductiondetections.csv', delimiter=',', engine='python')
 
 #sensors_in_map =[]
 #for s in data_simul['Detector'].unique():
@@ -35,7 +35,7 @@ for sens in sensors_in_map:
     #For each sensor add a new entry in the dict
     all_sensor[sens]=SensorData(sens)
     #And read real traffic data (sensor id helps to get the correct file)
-    data_real=pd.read_csv('../sensors/data/'+sens+'_hour_20200225T0000_20200226T0000.csv', delimiter=';', engine='python')
+    data_real=pd.read_csv('../sensors/data/'+sens+'_hour_20200226T0000_20200227T0000.csv', delimiter=';', engine='python')
     data_real=data_real.replace({'-':'0'})
     data_real['< 5,6m']=pd.to_numeric(data_real['< 5,6m'])
     
@@ -59,12 +59,11 @@ for sens in sensors_in_map:
             h=1
             simul_traff_lane = np.zeros(n_hours)
             for index, row in simul_data_lane.iterrows():
-                if row.Time < n_hours*3600:
-                    if row.Time <= h*3600:
-                        simul_traff_lane[h-1] += row.qPKW
-                    else:
-                        h+=1
-                        simul_traff_lane[h-1] += row.qPKW
+                if row.Time <= h*3600:
+                    simul_traff_lane[h-1] += row.qPKW
+                else:
+                    h+=1
+                    simul_traff_lane[h-1] += row.qPKW
             
             simul_traff_direction += simul_traff_lane
             #print(simul_traff_lane)
