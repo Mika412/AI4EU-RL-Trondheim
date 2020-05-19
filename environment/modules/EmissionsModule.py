@@ -23,7 +23,7 @@ class EmissionType(Enum):
 
 class EmissionConst:
 	# Percentage decay per step
-	decay = {'CO':0.9999, 'CO2': 0.8, 'NOx': 0.8, 'HC': 0.999914, 'PMx': 0.99991}
+	decay = {'CO':0.9999, 'CO2': 0.8, 'NOx': 0.99, 'HC': 0.999914, 'PMx': 0.99991}
 
 	# Percentage effect per step
 	# effect = {'CO': 0.1, 'CO2': 0.05, 'NOx': 0.1, 'HC': 0.4, 'PMx': 0.1}
@@ -35,110 +35,109 @@ class EmissionConst:
 	neighbour_decay = {'CO':0.3, 'CO2': 0.4, 'NOx': 10, 'HC': 0.3, 'PMx': 0.3}
 
 class EmissionsModule(BaseModule):
-	mg_to_ug_scaler = 1000
-	def __init__(self, cell_module, output_dir, emission_types = [], update_every = 10, save_to_file=False):
-		super().__init__()
+        mg_to_ug_scaler = 1000
+        def __init__(self, cell_module, output_dir, emission_types = [], update_every = 10, save_every = 10, save_to_file=False):
+                super().__init__()
 
-		self._traci = traci
-		self._cells = cell_module
+                self._traci = traci
+                self._cells = cell_module
 		
-		self.emission_types = emission_types
-		self.update_every = update_every
-		# Create emissions matrix
-		self.emissions_state = np.zeros(shape=(self._cells.yCount, self._cells.xCount, len(EmissionType)))
+                self.emission_types = emission_types
+                self.update_every = update_every
+                self.save_every = save_every
+                # Create emissions matrix
+                self.emissions_state = np.zeros(shape=(self._cells.yCount, self._cells.xCount, len(EmissionType)))
 		
-		self.output_dir = output_dir
+                self.output_dir = output_dir
 
-		self.save_to_file = save_to_file
-		if self.save_to_file:
-			self.emissions_output = output_dir + "emissions.csv"
+                self.save_to_file = save_to_file
+                if self.save_to_file:
+                        self.emissions_output = output_dir + "emissions.csv"
 
-			with open(self.emissions_output, "w") as csv_file:
-				writer = csv.writer(csv_file, delimiter=',')
-				row = ["Timestep", "Cell"]
-				for emission_type in self.emission_types:
-					row.append(str(emission_type))
-				writer.writerow(row)
-
-
-	@property
-	def variable_name(self):
-		return "emissions"
+                        with open(self.emissions_output, "w") as csv_file:
+                                writer = csv.writer(csv_file, delimiter=',')
+                                row = ["Timestep", "Cell"]
+                                for emission_type in self.emission_types:
+                                        row.append(str(emission_type))
+                                writer.writerow(row)
+                                
+                                
+        @property
+        def variable_name(self):
+                return "emissions"
 	
-	def subscribe_emissions(self):
+        def subscribe_emissions(self):
 			
-		# Get all edges
-		subscription_ids = list(map(self.get_emission_id, self.emission_types))
+                # Get all edges
+                subscription_ids = list(map(self.get_emission_id, self.emission_types))
 	
-		for edge in self._cells.edge_to_cells.keys():
-			self._traci.edge.subscribe(edge, subscription_ids)
+                for edge in self._cells.edge_to_cells.keys():
+                        self._traci.edge.subscribe(edge, subscription_ids)
 
-	def step(self, timestep):
-		self.updateEmissions(timestep)
-		if self.save_to_file:
-			self.write_emissions(timestep)
+        def step(self, timestep):
+                self.updateEmissions(timestep)
 
-	def normalize_emission(self, value):
-		return (self.mg_to_ug_scaler * value) / (self._cells.cell_height * self._cells.cell_width)
+        def normalize_emission(self, value):
+                return (self.mg_to_ug_scaler * value) / (self._cells.cell_height * self._cells.cell_width)
 
-	def get_emissions_type_matrix(self, emission_type):
-		return self.emissions_state[:, :, emission_type.value]
+        def get_emissions_type_matrix(self, emission_type):
+                return self.emissions_state[:, :, emission_type.value]
 	
-	def get_cell_emissions(self, cell_id, emission_type):
-		cell_obj = self._cells.cells[cell_id]
-		return self.emissions_state[cell_obj.matrixPosY, cell_obj.matrixPosX, emission_type.value]
+        def get_cell_emissions(self, cell_id, emission_type):
+                cell_obj = self._cells.cells[cell_id]
+                return self.emissions_state[cell_obj.matrixPosY, cell_obj.matrixPosX, emission_type.value]
 
-	def get_emission_id(self, emission_type):
-		emission_ids = {
-			EmissionType.CO: 	0x61,
-			EmissionType.CO2: 	0x60,
-			EmissionType.NOx: 	0x64,
-			EmissionType.HC: 	0x62,
-			EmissionType.PMx: 	0x63
-		}
-		return emission_ids[emission_type]
+        def get_emission_id(self, emission_type):
+                emission_ids = {
+                        EmissionType.CO: 	0x61,
+                        EmissionType.CO2: 	0x60,
+                        EmissionType.NOx: 	0x64,
+                        EmissionType.HC: 	0x62,
+                        EmissionType.PMx: 	0x63
+                }
+                return emission_ids[emission_type]
 
-	def updateEmissions(self, currentTimestep):
-		# if currentTimestep % self.update_every != 0:
-		# 	return
-		for edge in self._cells.edge_to_cells.keys():
-			edge_emissions = self._traci.edge.getSubscriptionResults(edge)
-			for polyId in self._cells.edge_to_cells[edge]:
-				for emission_type in self.emission_types:
-					# Get new emission values for the last step
-					emission_value = self.normalize_emission(edge_emissions[self.get_emission_id(emission_type)]) #Multiply by step length
-					x = self._cells.cells[polyId].matrixPosX
-					y = self._cells.cells[polyId].matrixPosY
-					self.emissions_state[y, x, emission_type.value] += emission_value
+        def updateEmissions(self, currentTimestep):
+                # if currentTimestep % self.update_every != 0:
+                # 	return
+                for edge in self._cells.edge_to_cells.keys():
+                        edge_emissions = self._traci.edge.getSubscriptionResults(edge)
+                        for polyId in self._cells.edge_to_cells[edge]:
+                                for emission_type in self.emission_types:
+                                        # Get new emission values for the last step
+                                        emission_value = self.normalize_emission(edge_emissions[self.get_emission_id(emission_type)]) #Multiply by step length
+                                        x = self._cells.cells[polyId].matrixPosX
+                                        y = self._cells.cells[polyId].matrixPosY
+                                        self.emissions_state[y, x, emission_type.value] += emission_value
 					
 		# for emission_type in self.emission_types:
-		# 	# Apply decay neighbors (Gaussian Filter)
-		# 	self.emissions_state[:,:, emission_type.value] = filters.gaussian_filter(self.emissions_state[:,:, emission_type.value], EmissionConst.neighbour_decay[str(emission_type)])
+                # 	# Apply decay neighbors (Gaussian Filter)
+                self.emissions_state[:,:, emission_type.value] = filters.gaussian_filter(self.emissions_state[:,:, emission_type.value], EmissionConst.neighbour_decay[str(emission_type)])
 			
-		# 	# Apply decay
-		# 	self.emissions_state[:,:, emission_type.value] = self.emissions_state[:,:, emission_type.value] * EmissionConst.decay[str(emission_type)] 
+                # 	# Apply decay
+                self.emissions_state[:,:, emission_type.value] = self.emissions_state[:,:, emission_type.value] * EmissionConst.decay[str(emission_type)] 
 		
-		if self.save_to_file:
-			self.write_emissions(currentTimestep)
+                if self.save_to_file and currentTimestep % self.save_every == 0:
+                        self.write_emissions(currentTimestep)
 
-	def write_emissions(self, currentTimestep):
-		with open(self.emissions_output, "a") as csv_file:
-			writer = csv.writer(csv_file, delimiter=',')
+        def write_emissions(self, currentTimestep):
+                with open(self.emissions_output, "a") as csv_file:
+                        writer = csv.writer(csv_file, delimiter=',')
 
-			for polyId in self._cells.cells:
-				x = self._cells.cells[polyId].matrixPosX
-				y = self._cells.cells[polyId].matrixPosY
-				row = [currentTimestep, polyId]
+                        for polyId in self._cells.cells:
+                                x = self._cells.cells[polyId].matrixPosX
+                                y = self._cells.cells[polyId].matrixPosY
+                                row = [currentTimestep, polyId]
 
-				for emission_type in self.emission_types:
-					row.append(self.emissions_state[y, x, emission_type.value])
-				writer.writerow(row)
+                                for emission_type in self.emission_types:
+                                        row.append(self.emissions_state[y, x, emission_type.value])
+                                writer.writerow(row)
 
 
-	def reset(self):
-		# Create emissions matrix
-		self.emissions_state = np.zeros(shape=(self._cells.yCount, self._cells.xCount, len(EmissionType)))
-
-		# Subscribe to emissions
-		self.subscribe_emissions()
+        def reset(self):
+                # Create emissions matrix
+                self.emissions_state = np.zeros(shape=(self._cells.yCount, self._cells.xCount, len(EmissionType)))
+                
+                # Subscribe to emissions
+                self.subscribe_emissions()
 		

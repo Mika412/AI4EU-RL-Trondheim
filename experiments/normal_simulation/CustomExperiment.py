@@ -10,12 +10,12 @@ from environment.modules.InductionLoopsModule import InductionLoopsModule
 
 class CustomExperiment(SumoBaseEnvironment):
 	def __init__(self, env_dir, out_dir=False, use_gui=False,num_seconds=20000):
-		super().__init__(env_dir, use_gui, num_seconds)
+		super().__init__(env_dir, out_dir, use_gui, num_seconds)
 
 
 		cells 		= CellsModule(self._cell_shapes, self._edges_in_cells, self.cell_max_height, self.cell_max_width, self.cell_height, self.cell_width)
-		emissions 	= EmissionsModule(cells, self.output_dir,[EmissionType.CO2,EmissionType.NOx], update_every=100, save_to_file=True)
-		# inductions 	= InductionLoopsModule(self.output_dir, self._induction_loops)
+		emissions 	= EmissionsModule(cells, self.output_dir,[EmissionType.NOx], update_every=100, save_every=3600, save_to_file=True)
+		inductions 	= InductionLoopsModule(self.output_dir, self._induction_loops)
 		# emissions_renderer = EmissionsRendererModule(emissions, [EmissionType.CO2], False)
 
 		# Extra modules
@@ -23,7 +23,7 @@ class CustomExperiment(SumoBaseEnvironment):
 		extra_modules.append(cells)
 		extra_modules.append(emissions)
 		# extra_modules.append(emissions_renderer)
-		# extra_modules.append(inductions)
+		extra_modules.append(inductions)
 
 		self.set_extra_modules(extra_modules)
 
