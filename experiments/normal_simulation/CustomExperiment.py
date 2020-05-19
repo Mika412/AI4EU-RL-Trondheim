@@ -17,7 +17,6 @@ class CustomExperiment(SumoBaseEnvironment):
 		emissions 	= EmissionsModule(cells, self.output_dir,[EmissionType.CO2, EmissionType.HC, EmissionType.NOx, EmissionType.PMx, EmissionType.CO], update_every=100, save_to_file=True)
 		inductions 	= InductionLoopsModule(self.output_dir, self._induction_loops)
 		emissions_renderer = EmissionsRendererModule(emissions, [EmissionType.CO2, EmissionType.HC, EmissionType.NOx, EmissionType.PMx, EmissionType.CO], False)
->>>>>>> c05437969ef7e4941a84733797ad0b86ac3386b6
 
 		# Extra modules
 		extra_modules = []
