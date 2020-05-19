@@ -23,7 +23,7 @@ class EmissionType(Enum):
 
 class EmissionConst:
 	# Percentage decay per step
-	decay = {'CO':0.9999, 'CO2': 0.8, 'NOx': 0.9999, 'HC': 0.999914, 'PMx': 0.99991}
+	decay = {'CO':0.9999, 'CO2': 0.8, 'NOx': 0.99, 'HC': 0.999914, 'PMx': 0.99991}
 
 	# Percentage effect per step
 	# effect = {'CO': 0.1, 'CO2': 0.05, 'NOx': 0.1, 'HC': 0.4, 'PMx': 0.1}
@@ -32,16 +32,15 @@ class EmissionConst:
 	# neighbour_effect = {'CO': 0.001, 'CO2': 0.005, 'NOx': 0.001, 'HC': 0.004, 'PMx': 0.001}
 
 	# Percentage effect on neighboring cells per step
-
-	neighbour_decay = {'CO':0.3, 'CO2': 0.4, 'NOx': 0.3, 'HC': 0.3, 'PMx': 0.3}
+	neighbour_decay = {'CO':0.3, 'CO2': 0.4, 'NOx': 10, 'HC': 0.3, 'PMx': 0.3}
 
 class EmissionsModule(BaseModule):
-	mg_to_ug_scaler = 1000
-	def __init__(self, cell_module, output_dir, emission_types = [], update_every = 10, save_to_file=False):
-		super().__init__()
+        mg_to_ug_scaler = 1000
+        def __init__(self, cell_module, output_dir, emission_types = [], update_every = 10, save_every = 10, save_to_file=False):
+                super().__init__()
 
-		self._traci = traci
-		self._cells = cell_module
+                self._traci = traci
+                self._cells = cell_module
 		
                 self.emission_types = emission_types
                 self.update_every = update_every
@@ -121,15 +120,14 @@ class EmissionsModule(BaseModule):
                 if self.save_to_file and currentTimestep % self.save_every == 0:
                         self.write_emissions(currentTimestep)
 
+        def write_emissions(self, currentTimestep):
+                with open(self.emissions_output, "a") as csv_file:
+                        writer = csv.writer(csv_file, delimiter=',')
 
-	def write_emissions(self, currentTimestep):
-		with open(self.emissions_output, "a") as csv_file:
-			writer = csv.writer(csv_file, delimiter=',')
-
-			for polyId in self._cells.cells:
-				x = self._cells.cells[polyId].matrixPosX
-				y = self._cells.cells[polyId].matrixPosY
-				row = [currentTimestep, polyId]
+                        for polyId in self._cells.cells:
+                                x = self._cells.cells[polyId].matrixPosX
+                                y = self._cells.cells[polyId].matrixPosY
+                                row = [currentTimestep, polyId]
 
                                 for emission_type in self.emission_types:
                                         row.append(self.emissions_state[y, x, emission_type.value])
@@ -141,4 +139,5 @@ class EmissionsModule(BaseModule):
                 self.emissions_state = np.zeros(shape=(self._cells.yCount, self._cells.xCount, len(EmissionType)))
                 
                 # Subscribe to emissions
-                self.subscribe_emissions()		
+                self.subscribe_emissions()
+		
