@@ -23,7 +23,7 @@ class EmissionType(Enum):
 
 class EmissionConst:
 	# Percentage decay per step
-	decay = {'CO':0.9999, 'CO2': 0.8, 'NOx': 0.99, 'HC': 0.999914, 'PMx': 0.99991}
+	decay = {'CO':0.9999, 'CO2': 0.8, 'NOx': 0.995, 'HC': 0.999914, 'PMx': 0.995}
 
 	# Percentage effect per step
 	# effect = {'CO': 0.1, 'CO2': 0.05, 'NOx': 0.1, 'HC': 0.4, 'PMx': 0.1}
@@ -32,7 +32,7 @@ class EmissionConst:
 	# neighbour_effect = {'CO': 0.001, 'CO2': 0.005, 'NOx': 0.001, 'HC': 0.004, 'PMx': 0.001}
 
 	# Percentage effect on neighboring cells per step
-	neighbour_decay = {'CO':0.3, 'CO2': 0.4, 'NOx': 10, 'HC': 0.3, 'PMx': 0.3}
+	neighbour_decay = {'CO':0.3, 'CO2': 0.4, 'NOx': 0.3, 'HC': 0.3, 'PMx': 0.3}
 
 class EmissionsModule(BaseModule):
         mg_to_ug_scaler = 1000

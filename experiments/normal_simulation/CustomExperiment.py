@@ -14,15 +14,15 @@ class CustomExperiment(SumoBaseEnvironment):
 
 
 		cells 		= CellsModule(self._cell_shapes, self._edges_in_cells, self.cell_max_height, self.cell_max_width, self.cell_height, self.cell_width)
-		emissions 	= EmissionsModule(cells, self.output_dir,[EmissionType.NOx], update_every=100, save_every=3600, save_to_file=True)
+		emissions 	= EmissionsModule(cells, self.output_dir,[EmissionType.PMx,EmissionType.NOx], update_every=10, save_every=10, save_to_file=True)
 		inductions 	= InductionLoopsModule(self.output_dir, self._induction_loops)
-		# emissions_renderer = EmissionsRendererModule(emissions, [EmissionType.CO2], False)
+		emissions_renderer = EmissionsRendererModule(emissions, [EmissionType.CO2,EmissionType.NOx], False)
 
 		# Extra modules
 		extra_modules = []
 		extra_modules.append(cells)
 		extra_modules.append(emissions)
-		# extra_modules.append(emissions_renderer)
+		extra_modules.append(emissions_renderer)
 		extra_modules.append(inductions)
 
 		self.set_extra_modules(extra_modules)
@@ -42,5 +42,5 @@ class CustomExperiment(SumoBaseEnvironment):
 		print("Took: ", end - start)
 
 if __name__ == "__main__":
-	env = CustomExperiment(env_dir="simulations/small_extended/",out_dir="outputs/small_extended/",use_gui=False,num_seconds=86400)
+	env = CustomExperiment(env_dir="simulations/small_extended/",out_dir="outputs/small_extended/",use_gui=True,num_seconds=86400)
 	env.run()
