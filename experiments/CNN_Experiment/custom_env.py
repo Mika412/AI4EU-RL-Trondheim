@@ -47,7 +47,6 @@ class CustomEnv(SumoRLBaseEnvironment):
 		self.action_mask = np.ones(shape=(self.cells.xCount * self.cells.yCount,), dtype=np.uint8)
 		
 	def step_actions(self, actions):
-		self.setActive()
 		self.action_number = int(actions['agent_0']/2)
 		self.action_type = (actions['agent_0'] % 2) == 0
 		
@@ -67,7 +66,6 @@ class CustomEnv(SumoRLBaseEnvironment):
 
 
 	def compute_observations(self):
-		self.setActive()
 
 		board = np.zeros((self.cells.xCount, self.cells.yCount, 3))
 		board[:,:, 0] = self.emissions.get_emissions_type_matrix(EmissionType.CO2)
@@ -98,9 +96,9 @@ class CustomEnv(SumoRLBaseEnvironment):
 		for cell_id in self.actionable_cells:
 			current_emissions += self.emissions.get_cell_emissions(cell_id, EmissionType.CO2)
 
-		current_emissions = current_emissions / max(self.vehicles_reward, 1)
+		current_emissions = current_emissions
 		
-		reward_emissions = - (current_emissions - self.previous_emissions + current_emissions) 
+		reward_emissions = - current_emissions
 		# reward_vehicles = - (self.vehicles_reward - self.previous_vehicles_reward)
 
 		reward = reward_emissions

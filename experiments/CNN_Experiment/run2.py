@@ -37,7 +37,7 @@ model_config = {
 
 custom_env =  CustomEnv(env_dir="simulations/small/",
 						use_gui=False,
-						num_seconds=28800,
+						num_seconds=14400,
 						action_every_steps=3600)
 
 register_env("small", lambda _: custom_env)
@@ -45,7 +45,8 @@ register_env("small", lambda _: custom_env)
 
 trainer = DQNTrainer(env="small", config={
 	"num_workers": 0,
-	"model": model_config,
+	# "model": model_config,
+	"learning_starts": 0,
     "batch_mode": "complete_episodes",
 })
 
