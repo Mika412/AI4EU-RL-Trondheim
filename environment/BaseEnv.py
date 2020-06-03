@@ -11,7 +11,8 @@ if 'SUMO_HOME' in os.environ:
     sys.path.append(os.path.join(os.environ['SUMO_HOME'], 'tools'))
     # import traci
     import sumolib
-    import libsumo as traci
+    #import libsumo as traci
+    import traci
 else:
     raise Exception("Please declare environment variable 'SUMO_HOME'")
 

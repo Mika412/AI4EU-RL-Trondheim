@@ -9,7 +9,9 @@ import csv
 # if 'SUMO_HOME' in os.environ:
 sys.path.append(os.path.join(os.environ['SUMO_HOME'], 'tools'))
 
-import libsumo as traci
+#import libsumo as traci
+import traci
+
 class EmissionType(Enum):
 	CO 	= 0
 	CO2 = 1

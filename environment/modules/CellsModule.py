@@ -7,7 +7,8 @@ import numpy as np
 import math
 # if 'SUMO_HOME' in os.environ:
 sys.path.append(os.path.join(os.environ['SUMO_HOME'], 'tools'))
-import libsumo as traci
+#import libsumo as traci
+import traci
 
 class Cell:
 	def __init__(self, cell_id, bottom_X, bottom_Y, top_X, top_Y, matrixPosX, matrixPosY):

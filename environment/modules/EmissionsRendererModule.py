@@ -47,7 +47,7 @@ class EmissionsRendererModule(BaseModule):
                         ax.get_yaxis().set_visible(False)
                         
                         cmap = self.get_emissions_colormap(emission_type)
-                        im = ax.imshow(np.transpose(emissions.get_emissions_type_matrix(emission_type)), cmap=cmap, vmin=0, vmax=self.max_values[str(emission_type)])
+                        im = ax.imshow(np.flip(emissions.get_emissions_type_matrix(emission_type),0), cmap=cmap, vmin=0, vmax=self.max_values[str(emission_type)])
                         divider = make_axes_locatable(ax)
                         cax = divider.append_axes("right", size="5%", pad=0.05)
                         cbar = self.fig.colorbar(im, cax=cax)
@@ -130,7 +130,7 @@ class EmissionsRendererModule(BaseModule):
                         ax = self.axs[i]
                         #import pdb; pdb.set_trace()
                         #print(self.emissions.get_emissions_type_matrix(emission_type))
-                        self.imgs[i].set_data(np.transpose(self.emissions.get_emissions_type_matrix(emission_type)))
+                        self.imgs[i].set_data(np.flip(self.emissions.get_emissions_type_matrix(emission_type),0))
 
                 plt.draw()
                 plt.pause(1e-3)
