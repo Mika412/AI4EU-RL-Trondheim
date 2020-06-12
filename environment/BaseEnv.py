@@ -18,10 +18,10 @@ else:
 
 class SumoBaseEnvironment:
     def __init__(self, 
-                env_dir,
-                out_dir,
-                use_gui=False,
-                num_seconds=20000, extra_modules = []):
+                 env_dir,
+                 out_dir,
+                 use_gui=False,
+                 num_seconds=20000, extra_modules = []):
 
         # Unique simulation name 
         self.simulationName = str(uuid.uuid4().hex[:6].upper())
@@ -68,7 +68,7 @@ class SumoBaseEnvironment:
         else:
             self.output_dir=out_dir
             if not os.path.exists(self.output_dir):
-            #self.output_dir = out_dir + str(datetime.datetime.now()) + "/"
+                #self.output_dir = out_dir + str(datetime.datetime.now()) + "/"
                 os.makedirs(self.output_dir)
 
 
@@ -90,7 +90,7 @@ class SumoBaseEnvironment:
 
                     # '--device.rerouting.probability','0.25',
                     # '--device.rerouting.period','10',
-					# '--device.rerouting.threads', '8']
+                                        # '--device.rerouting.threads', '8']
 
         additionals = []
         if self._route and self._flow:
@@ -103,8 +103,8 @@ class SumoBaseEnvironment:
             sumo_cmd.append("-r")
             additionals.append(self._route)
 
-        # if self._induction_loops:
-        #     additionals.append(self._induction_loops)
+        if self._induction_loops:
+            additionals.append(self._induction_loops)
 
         sumo_cmd.append(','.join(additionals))
 
@@ -131,7 +131,7 @@ class SumoBaseEnvironment:
     @property
     def sim_step(self):
         return self.traci.simulation.getCurrentTime() / 1000
-        
+    
     @property
     def is_done(self):
         return self.sim_step > self.sim_max_time
@@ -144,4 +144,4 @@ class SumoBaseEnvironment:
             module.step(self.sim_step)
 
     # def setActive(self):
-    # 		self.traci.switch(self.simulationName)
+    #           self.traci.switch(self.simulationName)

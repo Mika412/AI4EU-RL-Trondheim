@@ -42,7 +42,7 @@ def validate_arguments(args):
         raise argparse.ArgumentError('--start, Start date is required ')
 
     if not args.end:
-        raise argparse.ArgumentError('--end, End date is required ')
+        raise argparse.ArgumentError('--end, End date is required (it has to be the day after the desired limit)')
 
 
 def dir_file(path):

@@ -42,5 +42,13 @@ class CustomExperiment(SumoBaseEnvironment):
 		print("Took: ", end - start)
 
 if __name__ == "__main__":
-	env = CustomExperiment(env_dir="simulations/small_extended/",out_dir="outputs/small_extended/",use_gui=False,num_seconds=86400)
+	if len(sys.argv) > 1:
+		num_seconds = float(sys.argv[1]) #Expect number of seconds to simulate as argument
+	else:
+		num_seconds = 86400 #Simulate 1 day per default
+
+	print(num_seconds)
+		
+		
+	env = CustomExperiment(env_dir="simulations/small_extended/",out_dir="outputs/small_extended/",use_gui=False,num_seconds=num_seconds)
 	env.run()

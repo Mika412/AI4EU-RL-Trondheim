@@ -48,11 +48,13 @@ class InductionLoopsModule(BaseModule):
 		with open(self.emissions_output, "a") as csv_file:
 			writer = csv.writer(csv_file, delimiter=',')
 			for loop in self.traci.inductionloop.getIDList():
+				#print(loop)
+				#print(self.valid_induction_loops)
 				if loop in self.valid_induction_loops:
-					count = self.traci.inductionloop.getLastStepVehicleNumber(loop)
-					# Only write if there are any cars. Otherwise, skipping timesteps measn there were no cars
-					if count > 0:
-						writer.writerow([loop, int(timestep), self.traci.inductionloop.getLastStepVehicleNumber(loop)])
+						count = self.traci.inductionloop.getLastStepVehicleNumber(loop)
+						# Only write if there are any cars. Otherwise, skipping timesteps measn there were no cars
+						if count > 0:
+							writer.writerow([loop, int(timestep), self.traci.inductionloop.getLastStepVehicleNumber(loop)])
 
 	@abstractmethod
 	def reset(self):
