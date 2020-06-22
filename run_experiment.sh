@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 #This script runs everything needed to setup a simulation, from downloading traffic data, running simulation and plotting outputs.
 

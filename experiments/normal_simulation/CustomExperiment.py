@@ -28,7 +28,6 @@ class CustomExperiment(SumoBaseEnvironment):
 		self.set_extra_modules(extra_modules)
 
 
-
 	def run(self):
 		
 		start = time.time()

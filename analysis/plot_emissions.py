@@ -51,7 +51,7 @@ simul_elgeseter = data_simul[data_simul.Cell == elgeseter_poly]
 
 #Resample with time_resolution average
 time_resolution = 3600
-simul_togert = simul_torget.groupby(by=(simul_torget['Timestep']/time_resolution).astype(int)).mean()
+simul_torget = simul_torget.groupby(by=(simul_torget['Timestep']/time_resolution).astype(int)).mean()
 simul_bakke_kirke = simul_bakke_kirke.groupby(by=(simul_bakke_kirke['Timestep']/time_resolution).astype(int)).mean()
 simul_elgeseter = simul_elgeseter.groupby(by=(simul_elgeseter['Timestep']/time_resolution).astype(int)).mean()
 
