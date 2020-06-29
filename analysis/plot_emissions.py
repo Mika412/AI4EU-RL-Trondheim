@@ -6,12 +6,16 @@ import numpy as np
 import os
 import sys
 
+map = sys.argv[1]
+from_date = sys.argv[2]
+to_date = sys.argv[3]
+
 #Normal reading
 #data = pd.read_csv('../outputs/small_extended/backups/full_week/emissions.csv', delimiter=',', engine='python')
 
 #With chunk reading
 chunksize = 10**6
-tfr=pd.read_csv('../outputs/small_extended/emissions.csv', delimiter=',', engine='python', chunksize=chunksize, iterator=True)
+tfr=pd.read_csv('../outputs/'+map+'/emissions.csv', delimiter=',', engine='python', chunksize=chunksize, iterator=True)
 data_simul = pd.concat(tfr, ignore_index=True)
 
 #############
@@ -36,12 +40,9 @@ data_simul = pd.concat(tfr, ignore_index=True)
 #Elgeseter - poly_488
 #E6 Tiller - 
 
-torvet_poly = 'poly_490'
-bakke_kirke_poly = 'poly_685'
-elgeseter_poly = 'poly_504'
-
-from_date = sys.argv[1]
-to_date = sys.argv[2]
+torvet_poly = 'poly_745'
+bakke_kirke_poly = 'poly_1013'
+elgeseter_poly = 'poly_766'
 
 simul_torget = data_simul[data_simul.Cell == torvet_poly]
 

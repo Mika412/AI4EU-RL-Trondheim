@@ -17,18 +17,18 @@ class SensorData:
         self.directions.append(direction)
         self.real_traff.append(real)
         self.simul_traff.append(simul)
-
-from_date = sys.argv[1]
-to_date = sys.argv[2]
+	
+map = sys.argv[1]
+from_date = sys.argv[2]
+to_date = sys.argv[3]
 print(from_date)
 print(to_date)
 	
 simul_period = from_date.replace('-','') + 'T0000_' + to_date.replace('-','') + 'T0000'
 print(simul_period)
-map = 'small_extended'
 
 sensor_loc = pd.read_csv('../sensors/sensor_location.csv',delimiter=';')
-data_simul = pd.read_csv('../outputs/'+ map + '/inductiondetections.csv', delimiter=',', engine='python')
+data_simul = pd.read_csv('../outputs/'+ map + '/inductiondetections.csv', delimiter=',', engine='python', na_values=['-'])
 
 #sensors_in_map =[]
 #for s in data_simul['Detector'].unique():
@@ -39,11 +39,11 @@ sensors_in_map=data_simul['Detector'].str.split(pat='_',n=1).str[0].unique()
 all_sensor = {}
 #Iterate over all sensors
 for sens in sensors_in_map:
-    #print(sens)
+    print(sens)
     #For each sensor add a new entry in the dict
     all_sensor[sens]=SensorData(sens)
     #And read real traffic data (sensor id helps to get the correct file)
-    data_real=pd.read_csv('../sensors/data/'+sens+'_hour_'+ simul_period +'.csv', delimiter=';', engine='python')
+    data_real=pd.read_csv('../sensors/data/'+sens+'_hour_'+ simul_period +'.csv', delimiter=';', engine='python', na_values=['-'])
     
     #Then, for each sensor, loop through both directions. Final goal is to sum up the traffic in both directions
     for direct in sensor_loc[sensor_loc['Detector ID']==sens]['Direction'].unique():
@@ -58,7 +58,11 @@ for sens in sensors_in_map:
         for lane in lanes:
             #print(lane)
             #Read real traffic data for lane and add it to direction count
-            real_traff_direction += data_real[data_real['Felt']==str(lane)]['Volum'].values
+            #print('size = {}'.format(data_real[data_real['Felt']==str(lane)]['Volum'].values.size))
+            if data_real[data_real['Felt']==str(lane)]['Volum'].values.size != 0:
+                #print('real_traff_direction = {}'.format(real_traff_direction))
+                #print('new_val = {}'.format(data_real[data_real['Felt']==str(lane)]['Volum'].values))
+                real_traff_direction += data_real[data_real['Felt']==str(lane)]['Volum'].values
             
             #Now read simulated data, and parse it according to its format (is not yet aggregated per hour)
             simul_data_lane = data_simul[data_simul.Detector == str(sens+'_'+str(lane))]

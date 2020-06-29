@@ -24,6 +24,8 @@ flows_filename = "flows.xml"
 poly_filename = "polys.add.xml"
 districts_filename = "districts.taz.xml"
 
+simulations_directory = "simulations/"
+
 
 def create_detections(map_location, sensors_directory, hours, percentage, offset):
     print("Creating detections")

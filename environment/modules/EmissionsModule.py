@@ -23,7 +23,7 @@ class EmissionType(Enum):
 
 class EmissionConst:
 	# Percentage decay per step
-	decay = {'CO':0.9999, 'CO2': 0.8, 'NOx': 0.995, 'HC': 0.999914, 'PMx': 0.995}
+	decay = {'CO':0.9999, 'CO2': 0.8, 'NOx': 0.996, 'HC': 0.999914, 'PMx': 0.995}
 
 	# Percentage effect per step
 	# effect = {'CO': 0.1, 'CO2': 0.05, 'NOx': 0.1, 'HC': 0.4, 'PMx': 0.1}

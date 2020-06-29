@@ -1,0 +1,89 @@
+Detector ID;Detector Name;Detector Lane;Direction;Detector reference;SUMO Lane ID;Type;Position;Speed Limit
+03476V41818;Jakobslivegen ved Skovgård;1;Charlottenlund;KV3330 S1D1 m70;-190404207#2_0;in-between;0;40
+03476V41818;Jakobslivegen ved Skovgård;2;Skovgåard;KV3330 S1D1 m70;190404207#0_0;in-between;0;40
+04211V1677432;Nye Ilsvikøra;1;Flakk;FV715 S1D1 m20;431246732_0;in-between;0;40
+04211V1677432;Nye Ilsvikøra;2;Ila;FV715 S1D1 m20;-431246732_0;in-between;0;40
+04300V72813;Innherredsveien ved Fjæregata;1;Sentrum;FV6692 S2D1 m160;238902685#0_0;in-between;0;40
+04300V72813;Innherredsveien ved Fjæregata;3;Lade;FV6692 S2D1 m160;-238902685#0_0;in-between;0;40
+06750V2429605;Bromstadvegens forlengelse;1;Lade;FV6664 S1D1 m4426;155898973#0_0;in-between;0;40
+06750V2429605;Bromstadvegens forlengelse;2;Strindheim;FV6664 S1D1 m4426;-155898975_0;in-between;0;40
+06750V2429605;Bromstadvegens forlengelse;3;Lade;FV6664 S1D1 m4426;155898973#0_1;in-between;0;40
+06750V2429605;Bromstadvegens forlengelse;4;Strindheim;FV6664 S1D1 m4426;-155898975_1;in-between;0;40
+06970V72811;KROPPAN BRU;1;Trondheim;EV6 S75D1 m2632;18668209#1_0;in-between;0;40
+06970V72811;KROPPAN BRU;2;Heimdal;EV6 S75D1 m2632;81064215_0;in-between;0;40
+06970V72811;KROPPAN BRU;3;Trondheim;EV6 S75D1 m2632;18668209#1_1;in-between;0;40
+06970V72811;KROPPAN BRU;4;Heimdal;EV6 S75D1 m2632;81064215_1;in-between;0;40
+06970V72811;KROPPAN BRU;5;Trondheim;EV6 S75D1 m2632;18668209#1_2;in-between;0;40
+06970V72811;KROPPAN BRU;6;Heimdal;EV6 S75D1 m2632;81064215_2;in-between;0;40
+10236V72161;Innherredsveien ved Bakke kirke;1;Sentrum;FV6690 S1D1 m468;21063788#0_0;in-between;0;40
+10236V72161;Innherredsveien ved Bakke kirke;2;Lade;FV6690 S1D1 m468;328061951#4_0;in-between;0;40
+10236V72161;Innherredsveien ved Bakke kirke;3;Sentrum;FV6690 S1D1 m468;21063788#0_1;in-between;0;40
+10236V72161;Innherredsveien ved Bakke kirke;4;Lade;FV6690 S1D1 m468;328061951#4_1;in-between;0;40
+16219V72812;Prinsens gt nord for Elgeseter bru;1;Samfundet;FV6690 S3D1 m623;-301077360_0;in-between;0;40
+16219V72812;Prinsens gt nord for Elgeseter bru;2;Fjordgata;FV6690 S3D1 m623;301077360_0;in-between;0;40
+16219V72812;Prinsens gt nord for Elgeseter bru;3;Samfundet;FV6690 S3D1 m623;-301077360_1;in-between;0;40
+16219V72812;Prinsens gt nord for Elgeseter bru;4;Fjordgata;FV6690 S3D1 m623;301077360_1;in-between;0;40
+17961V72812;Holtermanns veg nord for Bratsbergvegen;1;Heimdal;FV6690 S3D1 m2868;16190491_0;in-between;0;40
+17961V72812;Holtermanns veg nord for Bratsbergvegen;2;Sentrum;FV6690 S3D1 m2868;718188321_0;in-between;0;40
+17961V72812;Holtermanns veg nord for Bratsbergvegen;3;Heimdal;FV6690 S3D1 m2868;16190491_1;in-between;0;40
+17961V72812;Holtermanns veg nord for Bratsbergvegen;4;Sentrum;FV6690 S3D1 m2868;718188321_1;in-between;0;40
+17961V72812;Holtermanns veg nord for Bratsbergvegen;5;Heimdal;FV6690 S3D1 m2868;16190491_2;in-between;0;40
+17961V72812;Holtermanns veg nord for Bratsbergvegen;6;Sentrum;FV6690 S3D1 m2868;718188321_2;in-between;0;40
+20570V72811;Sundland;1;Moholt;EV6 S76D1 m1539;328061955-AddedOnRampEdge_1;in-between;0;40
+20570V72811;Sundland;2;Sluppen;EV6 S76D1 m1539;191676961_0;in-between;0;40
+20570V72811;Sundland;3;Moholt;EV6 S76D1 m1539;328061955-AddedOnRampEdge_2;in-between;0;40
+20570V72811;Sundland;4;Sluppen;EV6 S76D1 m1539;191676961_1;in-between;0;40
+21571V2394246;Strindheimtunnelen vestgående løp;1;Nyhavna;RV706 S2D1 m3938;290003278_0;in-between;0;40
+21571V2394246;Strindheimtunnelen vestgående løp;3;Nyhavna;RV706 S2D1 m3938;290003278_1;in-between;0;40
+21801V72158;Brattørbrua;1;Trondheim S.;EV6 S75D140 m187;4981346_0;in-between;0;40
+21801V72158;Brattørbrua;2;Kjøpmannsgata;EV6 S75D140 m187;-4981346_0;in-between;0;40
+27372V72852;Søndre Ilevollen;1;Byåsen;FV6650 S1D1 m1149;224470082_0;in-between;0;40
+27372V72852;Søndre Ilevollen;2;Sentrum;FV6650 S1D1 m1149;-224470082_0;in-between;0;40
+30904V72218;MOHOLT RAMPE 1;1;;EV6 S76D1 m3523 KD4 m75;4999142_0;in-between;0;40
+34938V72813;Innherredsveien ved Saxenborg alle;1;Rotvoll;FV6692 S2D1 m1291;-606062486#1_0;in-between;0;40
+34938V72813;Innherredsveien ved Saxenborg alle;2;Sentrum;FV6692 S2D1 m1291;606062486#1_0;in-between;0;40
+35002V72811;MOHOLTLIA;1;Moholt;EV6 S76D1 m2823;191676959_0;in-between;0;40
+35002V72811;MOHOLTLIA;2;Sluppen;EV6 S76D1 m2823;191839025_0;in-between;0;40
+35002V72811;MOHOLTLIA;3;Moholt;EV6 S76D1 m2823;191676959_1;in-between;0;40
+35002V72811;MOHOLTLIA;4;Sluppen;EV6 S76D1 m2823;191839025_1;in-between;0;40
+36935V72359;SELSBAKK;1;Sluppen;RV706 S1D1 m1196;23188739#0_0;in-between;0;40
+36935V72359;SELSBAKK;2;Heimdal;RV706 S1D1 m1196;-23188739#1_0;in-between;0;40
+40649V2411511;Grillstad fra Rotvoll;1;Stjørdal;EV6 S76D1 m6960 KD2 m325;285538056_0;in-between;0;40
+44210V2411509;Grillstad til Rotvoll;1;Trondheim;EV6 S76D1 m6960 KD6 m100;251410712_0;in-between;0;40
+44656V72812;Elgeseter gate ved Abels gate;1;Heimdal;FV6690 S3D1 m1432;-51972126#2_0;in-between;0;40
+44656V72812;Elgeseter gate ved Abels gate;2;Sentrum;FV6690 S3D1 m1432;51972126#2_0;in-between;0;40
+44656V72812;Elgeseter gate ved Abels gate;3;Heimdal;FV6690 S3D1 m1432;-51972126#2_1;in-between;0;40
+44656V72812;Elgeseter gate ved Abels gate;4;Sentrum;FV6690 S3D1 m1432;51972126#2_1;in-between;0;40
+44660V72811;Moholt ved Vegamot;1;TUNGA;EV6 S76D1 m3847;19750535_0;in-between;0;40
+44660V72811;Moholt ved Vegamot;2;SLUPPEN;EV6 S76D1 m3847;192071666_0;in-between;0;40
+44660V72811;Moholt ved Vegamot;3;TUNGA;EV6 S76D1 m3847;19750535_1;in-between;0;40
+44660V72811;Moholt ved Vegamot;4;SLUPPEN;EV6 S76D1 m3847;192071666_1;in-between;0;40
+46684V1842951;MARIENBORGTUNNELEN;1;Ila;RV706 S1D1 m4524;60472440_0;in-between;0;40
+46684V1842951;MARIENBORGTUNNELEN;2;Selsbakk;RV706 S1D1 m4524;60672590_0;in-between;0;40
+63028V72219;MOHOLT rampe til Moholt;1;Moholt;EV6 S76D1 m3523 KD3 m121;4999143_0;in-between;0;40
+65625V41945;Kong Øysteins veg ved Eberg;1;Bromstad;FV6664 S1D1 m2152;236638831#0_0;in-between;0;40
+65625V41945;Kong Øysteins veg ved Eberg;2;Moholt;FV6664 S1D1 m2152;-236638831#0_0;in-between;0;40
+73951V2394243;Strindheimtunnelen mot Nyhavna;1;Strindheim;RV706 S2D1 m1340;682854403_0;in-between;0;40
+73951V2394243;Strindheimtunnelen mot Nyhavna;3;Strindheim;RV706 S2D1 m1340;682854403_1;in-between;0;40
+75341V41863;Jonsvannsveien vest for Steinanvegen;1;Heggdalen;FV6660 S1D1 m329;20563888_0;in-between;0;40
+75341V41863;Jonsvannsveien vest for Steinanvegen;2;Moholt;FV6660 S1D1 m329;-20563888_0;in-between;0;40
+77022V72359;OSLOVEGEN;1;Ila;RV706 S1D1 m2495;-198515223#6_0;in-between;0;40
+77022V72359;OSLOVEGEN;2;Selsbakk;RV706 S1D1 m2495;198515223#3_0;in-between;0;40
+78492V2394249;Rotvollekra;1;Stjørdal;RV706 S2D1 m6338;285538049_0;in-between;0;40
+78492V2394249;Rotvollekra;2;Trondheim;RV706 S2D1 m6338;251410714_0;in-between;0;40
+78492V2394249;Rotvollekra;3;Stjørdal;RV706 S2D1 m6338;285538049_1;in-between;0;40
+78492V2394249;Rotvollekra;4;Trondheim;RV706 S2D1 m6338;251410714_1;in-between;0;40
+81008V41567;Festningsgata;1;Rosenborg;FV6666 S1D1 m1857;-4973733#0_0;in-between;0;40
+81008V41567;Festningsgata;2;Samfundet;FV6666 S1D1 m1857;4973733#0_0;in-between;0;40
+81077V72158;Havnegata;1;Lademoen;RV706 S1D1 m8478;37524433#0_0;in-between;0;40
+81077V72158;Havnegata;2;Ila;RV706 S1D1 m8478;93266476#0_0;in-between;0;40
+81077V72158;Havnegata;3;Lademoen;RV706 S1D1 m8478;37524433#0_1;in-between;0;40
+81077V72158;Havnegata;4;Ila;RV706 S1D1 m8478;93266476#0_1;in-between;0;40
+88356V72157;Jernbanebrua;1;Trondheim S.;FV6692 S1D1 m243;505301148_0;in-between;0;40
+88356V72157;Jernbanebrua;2;Fjordgata;FV6692 S1D1 m243;-505301148_2;in-between;0;40
+88356V72157;Jernbanebrua;4;Fjordgata;FV6692 S1D1 m243;-505301148_1;in-between;0;40
+88356V72157;Jernbanebrua;6;Fjordgata;FV6692 S1D1 m243;-505301148_0;in-between;0;40
+94210V2411536;Grillstadtunnelen vest;1;HF FRA Stjørdal;EV6 S76D1 m7308;190438939_0;in-between;0;40
+94210V2411536;Grillstadtunnelen vest;2;Trondheim;EV6 S76D1 m7308;282657544_0;in-between;0;40
+94210V2411536;Grillstadtunnelen vest;3;HF FRA Stjørdal;EV6 S76D1 m7308;190438939_1;in-between;0;40
+94210V2411536;Grillstadtunnelen vest;4;Trondheim;EV6 S76D1 m7308;282657544_1;in-between;0;40
