@@ -49,5 +49,6 @@ wget "https://api.nilu.no/obs/historical/${from_date}%2000:00/${to_date}%2000:00
 
 cd ${cwd}/analysis
 
-python plot_traffic.py ${map} ${from_date} ${to_date}
+python plot_traffic_xml.py ${map} ${from_date} ${to_date}
+# python plot_traffic.py ${map} ${from_date} ${to_date}
 python plot_emissions.py ${map} ${from_date} ${to_date}
