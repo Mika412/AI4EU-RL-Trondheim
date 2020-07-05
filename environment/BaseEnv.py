@@ -39,7 +39,6 @@ class SumoBaseEnvironment:
 
         self.config = configparser.ConfigParser()
         self.config.read(os.path.join(env_dir, 'config.ini'))
-        print('conig', self.config)
         self.cell_height = int(self.config['DEFAULT']['cell_height'])
         self.cell_width  = int(self.config['DEFAULT']['cell_width'])
         self.cell_max_height = int(self.config['DEFAULT']['cell_max_height'])
@@ -130,7 +129,7 @@ class SumoBaseEnvironment:
 
     @property
     def sim_step(self):
-        return self.traci.simulation.getCurrentTime() / 1000
+        return self.traci.simulation.getTime()
     
     @property
     def is_done(self):

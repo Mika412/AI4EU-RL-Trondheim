@@ -34,7 +34,7 @@ class CustomExperiment(SumoBaseEnvironment):
 
 		self.reset()
 		while not self.is_done:
-			print(self.sim_step)
+			print(f'Timestep: {int(self.sim_step)}/{int(num_seconds)}\r', end="")
 			self.step()
 
 		end = time.time()
@@ -46,14 +46,14 @@ if __name__ == "__main__":
 	else:
 		map = 'small_extended'
 
-	print(map)
+	print("Current map: {}".format(map))
 		
 	if len(sys.argv) > 2: #Assumes second argument is simulation time
 		num_seconds = float(sys.argv[2]) #Expect number of seconds to simulate as argument
 	else:
 		num_seconds = 86400 #Simulate 1 day per default
 
-	print(num_seconds)
-		
+	print("Total seconds: {}".format(num_seconds))
+	print()
 	env = CustomExperiment(env_dir="simulations/"+map+"/",out_dir="outputs/"+map+"/",use_gui=False,num_seconds=num_seconds)
 	env.run()
