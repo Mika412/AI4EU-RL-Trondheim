@@ -30,7 +30,7 @@ if [ -d ${cwd}/sensors/data/${from_date}_${to_date} ]
 then
     cp ${cwd}/sensors/data/${from_date}_${to_date}/*.csv ${cwd}/sensors/data/
 else
-    mkdir ${cwd}/sensors/data/${from_date}_${to_date}
+    mkdir -p ${cwd}/sensors/data/${from_date}_${to_date}
     cd ${cwd}/scripts
     python download_sensors.py -i ../sensors/sensor_location.csv -o ../sensors/data/${from_date}_${to_date} -s ${from_date} -e ${to_date}
     cp ${cwd}/sensors/data/${from_date}_${to_date}/*.csv ${cwd}/sensors/data/
