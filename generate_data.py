@@ -71,7 +71,7 @@ def create_polys(map_location, poly_max_width, poly_max_height, poly_width, poly
                          'cell_max_width': poly_max_width,
                          'cell_height':    poly_height,
                          'cell_width':   poly_width,
-                         'timestep_seconds':   1}
+                         'timestep_seconds':   10}
     with open(map_location+'/config.ini', 'w') as configfile:
         config.write(configfile)
 

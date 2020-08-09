@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- generated on seg 06 jul 2020 00:11:22 by Eclipse SUMO netedit Version v1_6_0+0887-0dd4682dc5
+<!-- generated on dom 02 ago 2020 23:47:50 by Eclipse SUMO netedit Version v1_6_0+0887-0dd4682dc5
 <configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
 
     <input>
-        <sumo-net-file value="simulations/small_extended/osm.net.xml"/>
+        <sumo-net-file value="/home/mykhamarf/Documents/University/Trondheim-RL-Traffic-Optimization/simulations/small_extended/osm.net.xml"/>
     </input>
 
     <output>
-        <output-file value="simulations/small_extended/osm.net.xml"/>
+        <output-file value="/home/mykhamarf/Documents/University/Trondheim-RL-Traffic-Optimization/simulations/small_extended/osm.net.xml"/>
         <output.street-names value="true"/>
     </output>
 
@@ -1450,16 +1450,16 @@
         <lane id=":3012542868_2_0" index="0" disallow="tram rail_urban rail rail_electric rail_fast ship" speed="10.72" length="9.18" shape="716.01,799.70 718.48,800.64 719.94,801.78 721.06,803.38 722.48,805.72"/>
     </edge>
     <edge id=":303092935_0" function="internal">
-        <lane id=":303092935_0_0" index="0" disallow="pedestrian bicycle tram rail_urban rail rail_electric rail_fast ship" speed="27.78" length="9.86" shape="2757.50,1963.62 2755.25,1965.50 2754.69,1968.00 2754.13,1970.52 2751.88,1972.40"/>
-        <lane id=":303092935_0_1" index="1" disallow="pedestrian bicycle tram rail_urban rail rail_electric rail_fast ship" speed="27.78" length="9.86" shape="2756.40,1960.62 2754.14,1962.49 2753.58,1965.00 2753.02,1967.52 2750.77,1969.41"/>
-        <lane id=":303092935_0_2" index="2" disallow="pedestrian bicycle tram rail_urban rail rail_electric rail_fast ship" speed="27.78" length="9.86" shape="2756.40,1960.62 2754.17,1961.95 2753.02,1963.50 2751.88,1965.06 2749.65,1966.41"/>
-        <lane id=":303092935_0_3" index="3" disallow="pedestrian bicycle tram rail_urban rail rail_electric rail_fast ship" speed="27.78" length="9.86" shape="2756.40,1960.62 2748.53,1963.41"/>
+        <lane id=":303092935_0_0" index="0" disallow="pedestrian bicycle tram rail_urban rail rail_electric rail_fast ship" speed="27.78" length="9.37" shape="2757.50,1963.62 2755.25,1965.50 2754.69,1968.00 2754.13,1970.52 2751.88,1972.40"/>
+        <lane id=":303092935_0_1" index="1" disallow="pedestrian bicycle tram rail_urban rail rail_electric rail_fast ship" speed="27.78" length="9.37" shape="2757.50,1963.62 2755.28,1964.95 2754.13,1966.51 2752.99,1968.06 2750.77,1969.41"/>
+        <lane id=":303092935_0_2" index="2" disallow="pedestrian bicycle tram rail_urban rail rail_electric rail_fast ship" speed="27.78" length="9.37" shape="2756.40,1960.62 2754.17,1961.95 2753.02,1963.50 2751.88,1965.06 2749.65,1966.41"/>
+        <lane id=":303092935_0_3" index="3" disallow="pedestrian bicycle tram rail_urban rail rail_electric rail_fast ship" speed="27.78" length="9.37" shape="2756.40,1960.62 2748.53,1963.41"/>
     </edge>
     <edge id=":303092935_4" function="internal">
-        <lane id=":303092935_4_0" index="0" disallow="pedestrian bicycle tram rail_urban rail rail_electric rail_fast ship" speed="27.78" length="9.87" shape="2744.18,1951.72 2747.09,1951.59 2749.16,1953.09 2751.25,1954.63 2754.20,1954.61"/>
-        <lane id=":303092935_4_1" index="1" disallow="pedestrian bicycle tram rail_urban rail rail_electric rail_fast ship" speed="27.78" length="9.87" shape="2745.30,1954.72 2748.21,1954.59 2750.27,1956.10 2752.35,1957.64 2755.30,1957.61"/>
-        <lane id=":303092935_4_2" index="2" disallow="pedestrian bicycle tram rail_urban rail rail_electric rail_fast ship" speed="27.78" length="9.87" shape="2746.41,1957.72 2748.95,1957.21 2750.84,1957.61 2752.73,1958.04 2755.30,1957.61"/>
-        <lane id=":303092935_4_3" index="3" disallow="pedestrian bicycle tram rail_urban rail rail_electric rail_fast ship" speed="27.78" length="9.87" shape="2747.53,1960.72 2755.30,1957.61"/>
+        <lane id=":303092935_4_0" index="0" disallow="pedestrian bicycle tram rail_urban rail rail_electric rail_fast ship" speed="27.78" length="9.38" shape="2744.18,1951.72 2747.09,1951.59 2749.16,1953.09 2751.25,1954.63 2754.20,1954.61"/>
+        <lane id=":303092935_4_1" index="1" disallow="pedestrian bicycle tram rail_urban rail rail_electric rail_fast ship" speed="27.78" length="9.38" shape="2745.30,1954.72 2747.84,1954.20 2749.73,1954.60 2751.63,1955.03 2754.20,1954.61"/>
+        <lane id=":303092935_4_2" index="2" disallow="pedestrian bicycle tram rail_urban rail rail_electric rail_fast ship" speed="27.78" length="9.38" shape="2746.41,1957.72 2748.95,1957.21 2750.84,1957.61 2752.73,1958.04 2755.30,1957.61"/>
+        <lane id=":303092935_4_3" index="3" disallow="pedestrian bicycle tram rail_urban rail rail_electric rail_fast ship" speed="27.78" length="9.38" shape="2747.53,1960.72 2755.30,1957.61"/>
     </edge>
     <edge id=":3051860254_0" function="internal">
         <lane id=":3051860254_0_0" index="0" disallow="tram rail_urban rail rail_electric rail_fast ship" speed="11.11" length="0.31" shape="2047.92,570.57 2047.86,570.88"/>
@@ -8290,10 +8290,10 @@
         <request index="1" response="00000000" foes="00000000" cont="0"/>
         <request index="2" response="00000000" foes="00000000" cont="0"/>
         <request index="3" response="00000000" foes="00000000" cont="0"/>
-        <request index="4" response="00000000" foes="00000000" cont="0"/>
-        <request index="5" response="11000000" foes="11000000" cont="0"/>
-        <request index="6" response="10000000" foes="10100000" cont="0"/>
-        <request index="7" response="00000000" foes="01100000" cont="0"/>
+        <request index="4" response="00100000" foes="00100000" cont="0"/>
+        <request index="5" response="00000000" foes="00010000" cont="0"/>
+        <request index="6" response="10000000" foes="10000000" cont="0"/>
+        <request index="7" response="00000000" foes="01000000" cont="0"/>
     </junction>
     <junction id="3051860254" type="priority" x="2043.14" y="570.07" incLanes="-301077360_0 -301077360_1 41361081_0 41361081_1" intLanes=":3051860254_0_0 :3051860254_0_1 :3051860254_2_0 :3051860254_2_1" shape="2049.50,570.82 2036.86,568.80 2036.83,569.07 2049.44,571.14">
         <request index="0" response="0000" foes="0000" cont="0"/>
@@ -9470,7 +9470,7 @@
     <connection from="-27601947" to="-627542583" fromLane="0" toLane="0" via=":753970513_2_0" dir="s" state="M"/>
     <connection from="-27601947" to="-627542583" fromLane="1" toLane="1" via=":753970513_2_1" dir="s" state="M"/>
     <connection from="-27601986" to="37524434" fromLane="0" toLane="0" via=":303092935_0_0" dir="s" state="M"/>
-    <connection from="-27601986" to="37524434" fromLane="1" toLane="1" via=":303092935_0_1" dir="s" state="M"/>
+    <connection from="-27601986" to="37524434" fromLane="0" toLane="1" via=":303092935_0_1" dir="s" state="M"/>
     <connection from="-27601986" to="37524434" fromLane="1" toLane="2" via=":303092935_0_2" dir="s" state="M"/>
     <connection from="-27601986" to="37524434" fromLane="1" toLane="3" via=":303092935_0_3" dir="s" state="M"/>
     <connection from="-29088844" to="-4981346" fromLane="0" toLane="0" via=":34959129_0_0" dir="s" state="M"/>
@@ -10334,8 +10334,8 @@
     <connection from="515073682" to="37524432" fromLane="0" toLane="1" via=":759508172_4_1" dir="s" state="m"/>
     <connection from="515073682" to="37524432" fromLane="1" toLane="0" via=":759508172_4_2" dir="s" state="M"/>
     <connection from="515073682" to="37524432" fromLane="1" toLane="1" via=":759508172_4_3" dir="s" state="M"/>
-    <connection from="515073684" to="27601986" fromLane="0" toLane="0" via=":303092935_4_0" dir="s" state="M"/>
-    <connection from="515073684" to="27601986" fromLane="1" toLane="1" via=":303092935_4_1" dir="s" state="m"/>
+    <connection from="515073684" to="27601986" fromLane="0" toLane="0" via=":303092935_4_0" dir="s" state="m"/>
+    <connection from="515073684" to="27601986" fromLane="1" toLane="0" via=":303092935_4_1" dir="s" state="M"/>
     <connection from="515073684" to="27601986" fromLane="2" toLane="1" via=":303092935_4_2" dir="s" state="m"/>
     <connection from="515073684" to="27601986" fromLane="3" toLane="1" via=":303092935_4_3" dir="s" state="M"/>
     <connection from="539308469" to="5004452#2" fromLane="0" toLane="0" via=":1788988409_0_0" dir="r" state="m"/>
@@ -11100,7 +11100,7 @@
     <connection from=":303092935_0" to="37524434" fromLane="2" toLane="2" dir="s" state="M"/>
     <connection from=":303092935_0" to="37524434" fromLane="3" toLane="3" dir="s" state="M"/>
     <connection from=":303092935_4" to="27601986" fromLane="0" toLane="0" dir="s" state="M"/>
-    <connection from=":303092935_4" to="27601986" fromLane="1" toLane="1" dir="s" state="M"/>
+    <connection from=":303092935_4" to="27601986" fromLane="1" toLane="0" dir="s" state="M"/>
     <connection from=":303092935_4" to="27601986" fromLane="2" toLane="1" dir="s" state="M"/>
     <connection from=":303092935_4" to="27601986" fromLane="3" toLane="1" dir="s" state="M"/>
     <connection from=":3051860254_0" to="445395223" fromLane="0" toLane="0" dir="s" state="M"/>

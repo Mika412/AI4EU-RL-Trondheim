@@ -59,7 +59,12 @@ class CellsModule(BaseModule):
 		self.load_cells()
 		self.load_cell_edges()
 
-
+		valid_cells = []
+		for cell_id in self.cells:
+			if cell_id in self.cells_to_edges:
+				valid_cells.append([self.cells[cell_id].matrixPosY,self.cells[cell_id].matrixPosX])
+		print(self.xCount, self.yCount)
+		print(valid_cells)
 
 	def load_cells(self):
 		parser = etree.XMLParser(recover=True)
@@ -95,6 +100,21 @@ class CellsModule(BaseModule):
 	def get_cell_edges(self, cellId):
 		return self.cells_to_edges[cellId]
 
+
+	def get_neighbors_ids(self, cellId):
+		_cell = self.cells[cellId]
+		neighbors = []
+		neighbors.append(self.cells_id_matrix[_cell.matrixPosY-1,_cell.matrixPosX-1])
+		neighbors.append(self.cells_id_matrix[_cell.matrixPosY-1,_cell.matrixPosX])
+		neighbors.append(self.cells_id_matrix[_cell.matrixPosY-1,_cell.matrixPosX+1])
+		neighbors.append(self.cells_id_matrix[_cell.matrixPosY,_cell.matrixPosX-1])
+		neighbors.append(self.cells_id_matrix[_cell.matrixPosY,_cell.matrixPosX+1])
+		neighbors.append(self.cells_id_matrix[_cell.matrixPosY+1,_cell.matrixPosX-1])
+		neighbors.append(self.cells_id_matrix[_cell.matrixPosY+1,_cell.matrixPosX])
+		neighbors.append(self.cells_id_matrix[_cell.matrixPosY+1,_cell.matrixPosX+1])
+		neighbors = [i.decode("utf-8") for i in neighbors]
+		return neighbors
+		
 	def close_cell(self, cell_id):
 		if cell_id in self.closed_cells or not cell_id in self.cells or not cell_id in self.cells_to_edges :
 			return

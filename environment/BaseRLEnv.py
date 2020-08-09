@@ -11,8 +11,9 @@ from itertools import islice
 import gym
 class SumoRLBaseEnvironment(gym.Env, SumoBaseEnvironment):
 
-	def __init__(self, env_dir, use_gui=False, num_seconds=20000, action_every_steps=1):
-		super().__init__(env_dir, use_gui, num_seconds)
+	def __init__(self, env_dir, use_gui=False, num_seconds=20000, start_at = 0, action_every_steps=1):
+		print(start_at)
+		super().__init__(env_dir, False, use_gui, num_seconds, start_at)
 
 		self.action_every_steps = action_every_steps
 		self.epoch_actions = []
@@ -20,6 +21,7 @@ class SumoRLBaseEnvironment(gym.Env, SumoBaseEnvironment):
 		self.epoch_rewards = []
 		self.epoch_rewards2 = []
 		self.reward_baseline = 0
+		self.travel_time = 0
 
 	def reset(self):
 		if self.is_connected:
@@ -94,10 +96,13 @@ class SumoRLBaseEnvironment(gym.Env, SumoBaseEnvironment):
 
 
 	def step(self, actions):
+		self.travel_time = 0
 		self.step_actions(actions)
 		
 		for i in range(int(max(self.action_every_steps,1)/self.timestep_length_seconds)):
 			SumoBaseEnvironment.step(self)
+			for edge in self.cells.edge_to_cells.keys():
+				self.travel_time += self.traci.edge.getTraveltime(edge)
 		self.update_reward()
 		observation = self.compute_observations()
   
