@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- generated on 2020-08-09 15:37:15.053806 by edgesInDistricts.py v1_6_0+0887-0dd4682dc5
+<!-- generated on 2020-08-09 18:54:56.335450 by edgesInDistricts.py v1_6_0+0887-0dd4682dc5
   options: -n simulations/small_extended/osm.net.xml -t simulations/small_extended/polys.add.xml -o simulations/small_extended/districts.taz.xml
 -->
 <tazs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/taz_file.xsd">
@@ -30,12 +30,12 @@
     <taz id="poly_143" edges="-15235411"/>
     <taz id="poly_171" edges="-26813482 26813482"/>
     <taz id="poly_172" edges="-101203188 -23329938 -26813482 176374650#0 176374650#1 23326767 23329938 23329939 26813482"/>
-    <taz id="poly_176" edges="-15235411 -190309445#0 -450371154 15235411 23036085#2 450371154"/>
+    <taz id="poly_176" edges="-15235411 15235411"/>
     <taz id="poly_205" edges="-23329938 23329938 617711517 617711518"/>
     <taz id="poly_206" edges="617711517 727900568 733747314"/>
     <taz id="poly_207" edges="-23036041#1 -23036041#5 -23036047#1 -55379618#1 23036041#0 23036041#2 23036047#1 55379618#0"/>
     <taz id="poly_208" edges="-23036041#5 23036041#2"/>
-    <taz id="poly_209" edges="-15235411 -23036041#5 -23036041#6 -23036085#1 -431246745 -450371153 15235411 15235412#0 450371153 60471386"/>
+    <taz id="poly_209" edges="-15235411 -23036041#5 -23036041#6 -23036085#1 -431246745 15235411 15235412#0 60471386"/>
     <taz id="poly_210" edges="60471386"/>
     <taz id="poly_237" edges="-23035952#3 -23035952#4 -23035972#1 23035952#0 23035952#4 23035972#0"/>
     <taz id="poly_238" edges="-23035952#3 -617711514 23035952#0 617711514 617711518 617711519 617711520 727902835"/>
