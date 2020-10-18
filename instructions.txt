@@ -1,0 +1,13 @@
+# Generate python stubs:
+	- python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. model.proto
+
+# Running locally
+	- Terminal 1: python sim_server.py
+	- Terminal 2: python sim_client.py
+
+# Docker instructions:
+	- Building: docker build trondheim-sumo-simulator:v1 .
+	- Running: 
+		- Terminal 1: docker run -it -p 50055:50055 trondheim-sumo-simulator:v1
+		- Terminal 2: python sim_client.py
+	
