@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-import model_pb2 as model__pb2
+import simulator_pb2 as simulator__pb2
 
 
 class SimulateStub(object):
@@ -17,23 +17,23 @@ class SimulateStub(object):
         """
         self.start_simulation = channel.unary_unary(
                 '/isr.simulation.Simulate/start_simulation',
-                request_serializer=model__pb2.InitRequest.SerializeToString,
-                response_deserializer=model__pb2.InitResponse.FromString,
+                request_serializer=simulator__pb2.InitRequest.SerializeToString,
+                response_deserializer=simulator__pb2.InitResponse.FromString,
                 )
         self.step = channel.unary_unary(
                 '/isr.simulation.Simulate/step',
-                request_serializer=model__pb2.StepRequest.SerializeToString,
-                response_deserializer=model__pb2.StepResponse.FromString,
+                request_serializer=simulator__pb2.StepRequest.SerializeToString,
+                response_deserializer=simulator__pb2.StepResponse.FromString,
                 )
         self.get_emissions = channel.unary_unary(
                 '/isr.simulation.Simulate/get_emissions',
-                request_serializer=model__pb2.EmissionsRequest.SerializeToString,
-                response_deserializer=model__pb2.EmissionsResponse.FromString,
+                request_serializer=simulator__pb2.EmissionsRequest.SerializeToString,
+                response_deserializer=simulator__pb2.EmissionsResponse.FromString,
                 )
         self.change_cell_state = channel.unary_unary(
                 '/isr.simulation.Simulate/change_cell_state',
-                request_serializer=model__pb2.ChangeCellStateRequest.SerializeToString,
-                response_deserializer=model__pb2.ChangeCellStateResponse.FromString,
+                request_serializer=simulator__pb2.ChangeCellStateRequest.SerializeToString,
+                response_deserializer=simulator__pb2.ChangeCellStateResponse.FromString,
                 )
 
 
@@ -70,23 +70,23 @@ def add_SimulateServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'start_simulation': grpc.unary_unary_rpc_method_handler(
                     servicer.start_simulation,
-                    request_deserializer=model__pb2.InitRequest.FromString,
-                    response_serializer=model__pb2.InitResponse.SerializeToString,
+                    request_deserializer=simulator__pb2.InitRequest.FromString,
+                    response_serializer=simulator__pb2.InitResponse.SerializeToString,
             ),
             'step': grpc.unary_unary_rpc_method_handler(
                     servicer.step,
-                    request_deserializer=model__pb2.StepRequest.FromString,
-                    response_serializer=model__pb2.StepResponse.SerializeToString,
+                    request_deserializer=simulator__pb2.StepRequest.FromString,
+                    response_serializer=simulator__pb2.StepResponse.SerializeToString,
             ),
             'get_emissions': grpc.unary_unary_rpc_method_handler(
                     servicer.get_emissions,
-                    request_deserializer=model__pb2.EmissionsRequest.FromString,
-                    response_serializer=model__pb2.EmissionsResponse.SerializeToString,
+                    request_deserializer=simulator__pb2.EmissionsRequest.FromString,
+                    response_serializer=simulator__pb2.EmissionsResponse.SerializeToString,
             ),
             'change_cell_state': grpc.unary_unary_rpc_method_handler(
                     servicer.change_cell_state,
-                    request_deserializer=model__pb2.ChangeCellStateRequest.FromString,
-                    response_serializer=model__pb2.ChangeCellStateResponse.SerializeToString,
+                    request_deserializer=simulator__pb2.ChangeCellStateRequest.FromString,
+                    response_serializer=simulator__pb2.ChangeCellStateResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -111,8 +111,8 @@ class Simulate(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/isr.simulation.Simulate/start_simulation',
-            model__pb2.InitRequest.SerializeToString,
-            model__pb2.InitResponse.FromString,
+            simulator__pb2.InitRequest.SerializeToString,
+            simulator__pb2.InitResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -128,8 +128,8 @@ class Simulate(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/isr.simulation.Simulate/step',
-            model__pb2.StepRequest.SerializeToString,
-            model__pb2.StepResponse.FromString,
+            simulator__pb2.StepRequest.SerializeToString,
+            simulator__pb2.StepResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -145,8 +145,8 @@ class Simulate(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/isr.simulation.Simulate/get_emissions',
-            model__pb2.EmissionsRequest.SerializeToString,
-            model__pb2.EmissionsResponse.FromString,
+            simulator__pb2.EmissionsRequest.SerializeToString,
+            simulator__pb2.EmissionsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -162,7 +162,7 @@ class Simulate(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/isr.simulation.Simulate/change_cell_state',
-            model__pb2.ChangeCellStateRequest.SerializeToString,
-            model__pb2.ChangeCellStateResponse.FromString,
+            simulator__pb2.ChangeCellStateRequest.SerializeToString,
+            simulator__pb2.ChangeCellStateResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

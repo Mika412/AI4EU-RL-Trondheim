@@ -23,4 +23,4 @@ RUN pip3 install -r requirements.txt
 
 ENV SUMO_HOME /usr/share/sumo
 
-ENTRYPOINT [ "python3","sim_server.py" ]
+#ENTRYPOINT [ "python3","sim_server.py" ]
