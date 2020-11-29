@@ -1,0 +1,19 @@
+//Define the used version of proto
+syntax = "proto3";
+
+package agent;
+
+message StepRequest {
+  int32 numSteps = 1;
+  map<string, bool> cell_state = 2;
+}
+
+message StateResponse {
+  int32 currentStep = 1;
+  map<string, float> emissions = 2;
+}
+
+//Define the service
+service Agent {
+  rpc get_action(StateResponse) returns(StepRequest);
+}

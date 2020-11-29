@@ -1,0 +1,26 @@
+<detectors>
+    <detectorDefinition id="21801V72158_1" lane="4981346_0" pos="0" type="in-between"></detectorDefinition>
+    <detectorDefinition id="21801V72158_2" lane="-4981346_0" pos="0" type="in-between"></detectorDefinition>
+    <detectorDefinition id="10236V72161_1" lane="21063788#0_0" pos="0" type="in-between"></detectorDefinition>
+    <detectorDefinition id="10236V72161_2" lane="328061951#3_0" pos="0" type="in-between"></detectorDefinition>
+    <detectorDefinition id="10236V72161_3" lane="21063788#0_1" pos="0" type="in-between"></detectorDefinition>
+    <detectorDefinition id="10236V72161_4" lane="328061951#3_1" pos="0" type="in-between"></detectorDefinition>
+    <detectorDefinition id="27372V72852_1" lane="224470082_0" pos="0" type="in-between"></detectorDefinition>
+    <detectorDefinition id="27372V72852_2" lane="-224470082_0" pos="0" type="in-between"></detectorDefinition>
+    <detectorDefinition id="88356V72157_1" lane="505301148_0" pos="0" type="in-between"></detectorDefinition>
+    <detectorDefinition id="88356V72157_2" lane="-505301148_2" pos="0" type="in-between"></detectorDefinition>
+    <detectorDefinition id="88356V72157_4" lane="-505301148_1" pos="0" type="in-between"></detectorDefinition>
+    <detectorDefinition id="88356V72157_6" lane="-505301148_0" pos="0" type="in-between"></detectorDefinition>
+    <detectorDefinition id="81077V72158_1" lane="37524433#0_0" pos="0" type="in-between"></detectorDefinition>
+    <detectorDefinition id="81077V72158_2" lane="93266476#0_0" pos="0" type="in-between"></detectorDefinition>
+    <detectorDefinition id="81077V72158_3" lane="37524433#0_1" pos="0" type="in-between"></detectorDefinition>
+    <detectorDefinition id="81077V72158_4" lane="93266476#0_1" pos="0" type="in-between"></detectorDefinition>
+    <detectorDefinition id="04211V1677432_1" lane="431246732_0" pos="0" type="in-between"></detectorDefinition>
+    <detectorDefinition id="04211V1677432_2" lane="-431246732_0" pos="0" type="in-between"></detectorDefinition>
+    <detectorDefinition id="16219V72812_1" lane="-301077360_0" pos="0" type="in-between"></detectorDefinition>
+    <detectorDefinition id="16219V72812_2" lane="301077360_0" pos="0" type="in-between"></detectorDefinition>
+    <detectorDefinition id="16219V72812_3" lane="-301077360_1" pos="0" type="in-between"></detectorDefinition>
+    <detectorDefinition id="16219V72812_4" lane="301077360_1" pos="0" type="in-between"></detectorDefinition>
+    <detectorDefinition id="04300V72813_1" lane="238902685#0_0" pos="0" type="in-between"></detectorDefinition>
+    <detectorDefinition id="04300V72813_3" lane="-238902685#1_0" pos="0" type="in-between"></detectorDefinition>
+</detectors>

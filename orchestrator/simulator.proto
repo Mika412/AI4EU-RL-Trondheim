@@ -1,0 +1,25 @@
+//Define the used version of proto
+syntax = "proto3";
+
+package simulation;
+
+message InitRequest {
+    string StartDate      = 1 ;
+    string EndDate        = 2 ;
+}
+
+message StepRequest {
+  int32 numSteps = 1;
+  map<string, bool> cell_state = 2;
+}
+
+message StateResponse {
+  int32 currentStep = 1;
+  map<string, float> emissions = 2;
+}
+
+//Define the service
+service Simulator{
+  rpc start_simulation(InitRequest) returns (StateResponse);
+  rpc step(StepRequest) returns (StateResponse);
+}

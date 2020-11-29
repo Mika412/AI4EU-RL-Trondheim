@@ -1,0 +1,5 @@
+
+{
+    "simulator-grpcport": 5055,
+    "agent-grpcport": 5056
+}
