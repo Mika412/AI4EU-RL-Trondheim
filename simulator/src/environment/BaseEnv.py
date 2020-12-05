@@ -80,7 +80,7 @@ class SumoBaseEnvironment:
 
         sumo_cmd = [self._sumo_binary,
                     '-n', self._net,
-                    '--ignore-route-errors',
+                    '--ignore-route-errors', 'True',
                     '--no-warnings',
                     '--step-length', str(self.timestep_length_seconds),
                     '--begin', str(self.start_at),

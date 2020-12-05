@@ -55,6 +55,8 @@ class SimulationManager:
     current_map = ""
     env = None
 
+    current_closed_state = {}
+    
     def initialize(self, start_date, end_date):
         if (
             self.env
@@ -78,7 +80,6 @@ class SimulationManager:
         )
         self.env.reset()
 
-        return self.get_emissions()
 
     def download_data(self, map, start_date, end_date):
 
@@ -129,6 +130,9 @@ class SimulationManager:
         create_polys("./simulations/{}/".format(map), 3400, 3300, 200, 200)
 
     def step(self, cell_states, steps):
+        if self.has_ended():
+            return
+        
         self.change_cell_state(cell_states) 
 
         for i in range(steps):
@@ -142,10 +146,8 @@ class SimulationManager:
                 ),
                 end="\r",
             )
-            if self.env.is_done:
+            if self.has_ended():
                 break
-        # return self.env.is_done
-        return self.get_emissions()
 
     def get_emissions(self):
         emissions = {}
@@ -156,15 +158,31 @@ class SimulationManager:
             emissions[cell_id] = emission_val
         return emissions
 
+    def get_vehicles(self):
+        vehicles = {}
+        for cell_id in self.env.cells.cells_to_edges:
+            car_count = 0
+            for edge_id in self.env.cells.cells_to_edges[cell_id]:
+                car_count += self.env.traci.edge.getLastStepVehicleNumber(edge_id)
+            vehicles[cell_id] = car_count
+        return vehicles
+
+    def get_cell_states(self):
+        return self.current_closed_state
+
     def change_cell_state(self, cell_states):
         for cell_id, value in cell_states.items():
             if not cell_id in self.env.cells.cells_to_edges:
                 continue
             if value:
                 self.env.cells.close_cell(cell_id)
+                self.current_closed_state[cell_id] = True
             else:
                 self.env.cells.open_cell(cell_id)
+                self.current_closed_state[cell_id] = False
 
     def current_step(self):
         return int(self.env.sim_step)
     
+    def has_ended(self):
+        return self.env.is_done

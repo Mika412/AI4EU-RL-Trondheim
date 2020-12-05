@@ -21,26 +21,46 @@ class SimulationServicer(simulator_pb2_grpc.SimulatorServicer):
 
         response = simulator_pb2.StateResponse()
 
+        self.manager.initialize(request.StartDate, request.EndDate)
         # get the value of the response by calling the desired function :
-        emissions = self.manager.initialize(request.StartDate, request.EndDate)
-
+        emissions = self.manager.get_emissions()
         for key, value in emissions.items():
             response.emissions[key] = value
 
+        vehicles = self.manager.get_vehicles()
+        for key, value in vehicles.items():
+            response.vehicles[key] = value
+            
+        cell_state = self.manager.get_cell_states()
+        for key, value in cell_state.items():
+            response.state[key] = value
+
         response.currentStep = self.manager.current_step()
+        response.hasEnded = self.manager.has_ended()
+
         return response
 
     def step(self, request, context):
         # define the buffer of the response :
         response = simulator_pb2.StateResponse()
 
+        self.manager.step(request.cell_state, request.numSteps)
+        
         # get the value of the response by calling the desired function :
-        emissions = self.manager.step(request.cell_state, request.numSteps)
-
+        emissions = self.manager.get_emissions()
         for key, value in emissions.items():
             response.emissions[key] = value
 
+        vehicles = self.manager.get_vehicles()
+        for key, value in vehicles.items():
+            response.vehicles[key] = value
+            
+        cell_state = self.manager.get_cell_states()
+        for key, value in cell_state.items():
+            response.state[key] = value
+        
         response.currentStep = self.manager.current_step()
+        response.hasEnded = self.manager.has_ended()
 
         return response
 

@@ -16,6 +16,9 @@ message StepRequest {
 message StateResponse {
   int32 currentStep = 1;
   map<string, float> emissions = 2;
+  map<string, int32> vehicles = 3;
+  map<string, int32> state = 4;
+  bool hasEnded = 5;
 }
 
 //Define the service

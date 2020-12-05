@@ -7,6 +7,9 @@ ENV TZ=Europe/Lisbon
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN ln -s /usr/bin/python3 /usr/bin/python & ln -s /usr/bin/pip3 /usr/bin/pip
 
+RUN apt update -y
+RUN apt install software-properties-common -y
+RUN add-apt-repository ppa:sumo/stable
 RUN apt-get update -y
 RUN apt-get install -y python3-pip
 RUN apt-get install -y sumo

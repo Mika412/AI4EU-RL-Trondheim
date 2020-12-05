@@ -2,7 +2,7 @@
 
 set -ex
 
-for component in simulator agent; do
+for component in simulator reactive-agent; do
   pushd $component
   ./docker-build.sh
   popd
