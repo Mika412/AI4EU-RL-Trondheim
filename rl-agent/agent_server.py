@@ -14,21 +14,27 @@ from agent_actor import ActorManager
 class AgentServicer(agent_pb2_grpc.AgentServicer):
     actor = None
 
-    def get_action(self, request, context):
+    def __init__(self):
+
         if not self.actor:
             self.actor = ActorManager()
 
+    def get_action(self, request, context):
+
         response = agent_pb2.StepRequest()
 
-        new_cell_state, response.numSteps = self.actor.get_action(request.emissions, request.currentStep)
+        new_cell_state, response.numSteps = self.actor.get_action(
+            request.emissions, request.currentStep
+        )
 
         for key, value in new_cell_state.items():
             response.cell_state[key] = value
 
         return response
 
-config = json.load(open("config.json", 'rt'))
-grpcport = config['grpcport']
+
+config = json.load(open("config.json", "rt"))
+grpcport = config["grpcport"]
 
 # creat a grpc server :
 server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))

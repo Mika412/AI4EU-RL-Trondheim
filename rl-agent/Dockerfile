@@ -10,6 +10,7 @@ RUN ln -s /usr/bin/python3 /usr/bin/python & ln -s /usr/bin/pip3 /usr/bin/pip
 
 RUN apt-get update -y
 RUN apt-get install -y python3-pip
+RUN apt-get install cmake -y
 RUN pip3 install --upgrade pip
 
 WORKDIR /

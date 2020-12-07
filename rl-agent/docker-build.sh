@@ -1,3 +1,3 @@
 #!/bin/sh
 
-docker build -t ai4eu-trondheim-agent .
+docker build -t ai4eu-trondheim-rl-agent .
