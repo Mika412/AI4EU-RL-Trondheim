@@ -24,7 +24,7 @@ class AgentServicer(agent_pb2_grpc.AgentServicer):
         response = agent_pb2.StepRequest()
 
         new_cell_state, response.numSteps = self.actor.get_action(
-            request.emissions, request.currentStep
+            request.emissions, request.vehicles, request.state, request.currentStep
         )
 
         for key, value in new_cell_state.items():

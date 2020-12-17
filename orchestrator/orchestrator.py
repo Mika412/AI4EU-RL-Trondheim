@@ -22,9 +22,12 @@ def main():
 
     StartDate = "2020-02-01"
     EndDate = "2020-02-02"
+    DensityPerc = 1.0
 
     # Start Simulation
-    initRequest = simulator_pb2.InitRequest(StartDate=StartDate, EndDate=EndDate)
+    initRequest = simulator_pb2.InitRequest(
+        StartDate=StartDate, EndDate=EndDate, DensityPerc=DensityPerc
+    )
     emissionsState = sim_request_stub.start_simulation(initRequest)
     # guijob = gui_request_stub.requestSudokuEvaluation(initRequest)
     while not emissionsState.hasEnded:
@@ -33,6 +36,7 @@ def main():
             agent_actions = agent_stub.get_action(emissionsState)
 
             emissionsState = sim_request_stub.step(agent_actions)
+
         #
         except Exception:
             print("Got an exception")

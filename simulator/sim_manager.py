@@ -52,26 +52,32 @@ class CustomExperiment(SumoBaseEnvironment):
 class SimulationManager:
     current_start_date = ""
     current_end_date = ""
+    current_perc = 1
     current_map = ""
     env = None
 
     current_closed_state = {}
-    
-    def initialize(self, start_date, end_date):
+
+    def initialize(self, start_date, end_date, density_perc):
         if (
             self.env
             and start_date == self.current_start_date
             and end_date == self.current_end_date
+            and density_perc == self.current_perc
         ):
             self.env.reset()
             return self.get_emissions()
+
+        self.current_start_date = start_date
+        self.current_end_date = end_date
+        self.current_perc = density_perc
 
         d1_start_date = datetime.strptime(start_date, "%Y-%m-%d")
         d2_end_date = datetime.strptime(end_date, "%Y-%m-%d")
         n_days = abs((d2_end_date - d1_start_date).days)
 
         map = "small_extended"
-        self.download_data(map, start_date, end_date)
+        self.download_data(map, start_date, end_date, density_perc)
         self.env = CustomExperiment(
             env_dir="./simulations/" + map + "/",
             out_dir="./outputs/" + map + "/",
@@ -80,8 +86,7 @@ class SimulationManager:
         )
         self.env.reset()
 
-
-    def download_data(self, map, start_date, end_date):
+    def download_data(self, map, start_date, end_date, density_perc):
 
         # Delete all CSV files
         # TODO: Replace this section to use the shutil library
@@ -125,15 +130,17 @@ class SimulationManager:
                 if os.path.isfile(file):
                     shutil.copy2(file, "./sensors/data/")
 
-        create_detections("./simulations/{}/".format(map), "./sensors/", 86400, 1, 0)
+        create_detections(
+            "./simulations/{}/".format(map), "./sensors/", 86400, density_perc, 0
+        )
         create_routes("./simulations/{}/".format(map))
         create_polys("./simulations/{}/".format(map), 3400, 3300, 200, 200)
 
     def step(self, cell_states, steps):
         if self.has_ended():
             return
-        
-        self.change_cell_state(cell_states) 
+
+        self.change_cell_state(cell_states)
 
         for i in range(steps):
             self.env.step()
@@ -183,6 +190,6 @@ class SimulationManager:
 
     def current_step(self):
         return int(self.env.sim_step)
-    
+
     def has_ended(self):
         return self.env.is_done

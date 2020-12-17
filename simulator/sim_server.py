@@ -18,10 +18,9 @@ class SimulationServicer(simulator_pb2_grpc.SimulatorServicer):
         # define the buffer of the response :
         self.manager = SimulationManager()
 
-
         response = simulator_pb2.StateResponse()
 
-        self.manager.initialize(request.StartDate, request.EndDate)
+        self.manager.initialize(request.StartDate, request.EndDate, request.DensityPerc)
         # get the value of the response by calling the desired function :
         emissions = self.manager.get_emissions()
         for key, value in emissions.items():
@@ -30,7 +29,7 @@ class SimulationServicer(simulator_pb2_grpc.SimulatorServicer):
         vehicles = self.manager.get_vehicles()
         for key, value in vehicles.items():
             response.vehicles[key] = value
-            
+
         cell_state = self.manager.get_cell_states()
         for key, value in cell_state.items():
             response.state[key] = value
@@ -45,7 +44,7 @@ class SimulationServicer(simulator_pb2_grpc.SimulatorServicer):
         response = simulator_pb2.StateResponse()
 
         self.manager.step(request.cell_state, request.numSteps)
-        
+
         # get the value of the response by calling the desired function :
         emissions = self.manager.get_emissions()
         for key, value in emissions.items():
@@ -54,19 +53,20 @@ class SimulationServicer(simulator_pb2_grpc.SimulatorServicer):
         vehicles = self.manager.get_vehicles()
         for key, value in vehicles.items():
             response.vehicles[key] = value
-            
+
         cell_state = self.manager.get_cell_states()
         for key, value in cell_state.items():
             response.state[key] = value
-        
+
         response.currentStep = self.manager.current_step()
         response.hasEnded = self.manager.has_ended()
 
         return response
 
+
 # get the grpc port
-config = json.load(open("config.json", 'rt'))
-grpcport = config['grpcport']
+config = json.load(open("config.json", "rt"))
+grpcport = config["grpcport"]
 
 # creat a grpc server :
 server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))

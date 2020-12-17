@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0fsimulator.proto\x12\nsimulation\"1\n\x0bInitRequest\x12\x11\n\tStartDate\x18\x01 \x01(\t\x12\x0f\n\x07\x45ndDate\x18\x02 \x01(\t\"\x8d\x01\n\x0bStepRequest\x12\x10\n\x08numSteps\x18\x01 \x01(\x05\x12:\n\ncell_state\x18\x02 \x03(\x0b\x32&.simulation.StepRequest.CellStateEntry\x1a\x30\n\x0e\x43\x65llStateEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x08:\x02\x38\x01\"\xf4\x02\n\rStateResponse\x12\x13\n\x0b\x63urrentStep\x18\x01 \x01(\x05\x12;\n\temissions\x18\x02 \x03(\x0b\x32(.simulation.StateResponse.EmissionsEntry\x12\x39\n\x08vehicles\x18\x03 \x03(\x0b\x32\'.simulation.StateResponse.VehiclesEntry\x12\x33\n\x05state\x18\x04 \x03(\x0b\x32$.simulation.StateResponse.StateEntry\x12\x10\n\x08hasEnded\x18\x05 \x01(\x08\x1a\x30\n\x0e\x45missionsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x02:\x02\x38\x01\x1a/\n\rVehiclesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x05:\x02\x38\x01\x1a,\n\nStateEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x05:\x02\x38\x01\x32\x8f\x01\n\tSimulator\x12\x46\n\x10start_simulation\x12\x17.simulation.InitRequest\x1a\x19.simulation.StateResponse\x12:\n\x04step\x12\x17.simulation.StepRequest\x1a\x19.simulation.StateResponseb\x06proto3'
+  serialized_pb=b'\n\x0fsimulator.proto\x12\nsimulation\"F\n\x0bInitRequest\x12\x11\n\tStartDate\x18\x01 \x01(\t\x12\x0f\n\x07\x45ndDate\x18\x02 \x01(\t\x12\x13\n\x0b\x44\x65nsityPerc\x18\x03 \x01(\x02\"\x8d\x01\n\x0bStepRequest\x12\x10\n\x08numSteps\x18\x01 \x01(\x05\x12:\n\ncell_state\x18\x02 \x03(\x0b\x32&.simulation.StepRequest.CellStateEntry\x1a\x30\n\x0e\x43\x65llStateEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x08:\x02\x38\x01\" \n\x08Position\x12\t\n\x01x\x18\x01 \x01(\x05\x12\t\n\x01y\x18\x02 \x01(\x05\"\xf4\x03\n\rStateResponse\x12\x13\n\x0b\x63urrentStep\x18\x01 \x01(\x05\x12;\n\temissions\x18\x02 \x03(\x0b\x32(.simulation.StateResponse.EmissionsEntry\x12\x39\n\x08vehicles\x18\x03 \x03(\x0b\x32\'.simulation.StateResponse.VehiclesEntry\x12\x33\n\x05state\x18\x04 \x03(\x0b\x32$.simulation.StateResponse.StateEntry\x12\x38\n\x08\x63\x65ll_map\x18\x05 \x03(\x0b\x32&.simulation.StateResponse.CellMapEntry\x12\x10\n\x08hasEnded\x18\x06 \x01(\x08\x1a\x30\n\x0e\x45missionsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x02:\x02\x38\x01\x1a/\n\rVehiclesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x05:\x02\x38\x01\x1a,\n\nStateEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x05:\x02\x38\x01\x1a\x44\n\x0c\x43\x65llMapEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12#\n\x05value\x18\x02 \x01(\x0b\x32\x14.simulation.Position:\x02\x38\x01\x32\x8f\x01\n\tSimulator\x12\x46\n\x10start_simulation\x12\x17.simulation.InitRequest\x1a\x19.simulation.StateResponse\x12:\n\x04step\x12\x17.simulation.StepRequest\x1a\x19.simulation.StateResponseb\x06proto3'
 )
 
 
@@ -47,6 +47,13 @@ _INITREQUEST = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='DensityPerc', full_name='simulation.InitRequest.DensityPerc', index=2,
+      number=3, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
   ],
   extensions=[
   ],
@@ -60,7 +67,7 @@ _INITREQUEST = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=31,
-  serialized_end=80,
+  serialized_end=101,
 )
 
 
@@ -98,8 +105,8 @@ _STEPREQUEST_CELLSTATEENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=176,
-  serialized_end=224,
+  serialized_start=197,
+  serialized_end=245,
 )
 
 _STEPREQUEST = _descriptor.Descriptor(
@@ -136,8 +143,47 @@ _STEPREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=83,
-  serialized_end=224,
+  serialized_start=104,
+  serialized_end=245,
+)
+
+
+_POSITION = _descriptor.Descriptor(
+  name='Position',
+  full_name='simulation.Position',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='x', full_name='simulation.Position.x', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='y', full_name='simulation.Position.y', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=247,
+  serialized_end=279,
 )
 
 
@@ -175,8 +221,8 @@ _STATERESPONSE_EMISSIONSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=456,
-  serialized_end=504,
+  serialized_start=569,
+  serialized_end=617,
 )
 
 _STATERESPONSE_VEHICLESENTRY = _descriptor.Descriptor(
@@ -213,8 +259,8 @@ _STATERESPONSE_VEHICLESENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=506,
-  serialized_end=553,
+  serialized_start=619,
+  serialized_end=666,
 )
 
 _STATERESPONSE_STATEENTRY = _descriptor.Descriptor(
@@ -251,8 +297,46 @@ _STATERESPONSE_STATEENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=555,
-  serialized_end=599,
+  serialized_start=668,
+  serialized_end=712,
+)
+
+_STATERESPONSE_CELLMAPENTRY = _descriptor.Descriptor(
+  name='CellMapEntry',
+  full_name='simulation.StateResponse.CellMapEntry',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='simulation.StateResponse.CellMapEntry.key', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='simulation.StateResponse.CellMapEntry.value', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=b'8\001',
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=714,
+  serialized_end=782,
 )
 
 _STATERESPONSE = _descriptor.Descriptor(
@@ -292,8 +376,15 @@ _STATERESPONSE = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='hasEnded', full_name='simulation.StateResponse.hasEnded', index=4,
-      number=5, type=8, cpp_type=7, label=1,
+      name='cell_map', full_name='simulation.StateResponse.cell_map', index=4,
+      number=5, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='hasEnded', full_name='simulation.StateResponse.hasEnded', index=5,
+      number=6, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -301,7 +392,7 @@ _STATERESPONSE = _descriptor.Descriptor(
   ],
   extensions=[
   ],
-  nested_types=[_STATERESPONSE_EMISSIONSENTRY, _STATERESPONSE_VEHICLESENTRY, _STATERESPONSE_STATEENTRY, ],
+  nested_types=[_STATERESPONSE_EMISSIONSENTRY, _STATERESPONSE_VEHICLESENTRY, _STATERESPONSE_STATEENTRY, _STATERESPONSE_CELLMAPENTRY, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -310,8 +401,8 @@ _STATERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=227,
-  serialized_end=599,
+  serialized_start=282,
+  serialized_end=782,
 )
 
 _STEPREQUEST_CELLSTATEENTRY.containing_type = _STEPREQUEST
@@ -319,11 +410,15 @@ _STEPREQUEST.fields_by_name['cell_state'].message_type = _STEPREQUEST_CELLSTATEE
 _STATERESPONSE_EMISSIONSENTRY.containing_type = _STATERESPONSE
 _STATERESPONSE_VEHICLESENTRY.containing_type = _STATERESPONSE
 _STATERESPONSE_STATEENTRY.containing_type = _STATERESPONSE
+_STATERESPONSE_CELLMAPENTRY.fields_by_name['value'].message_type = _POSITION
+_STATERESPONSE_CELLMAPENTRY.containing_type = _STATERESPONSE
 _STATERESPONSE.fields_by_name['emissions'].message_type = _STATERESPONSE_EMISSIONSENTRY
 _STATERESPONSE.fields_by_name['vehicles'].message_type = _STATERESPONSE_VEHICLESENTRY
 _STATERESPONSE.fields_by_name['state'].message_type = _STATERESPONSE_STATEENTRY
+_STATERESPONSE.fields_by_name['cell_map'].message_type = _STATERESPONSE_CELLMAPENTRY
 DESCRIPTOR.message_types_by_name['InitRequest'] = _INITREQUEST
 DESCRIPTOR.message_types_by_name['StepRequest'] = _STEPREQUEST
+DESCRIPTOR.message_types_by_name['Position'] = _POSITION
 DESCRIPTOR.message_types_by_name['StateResponse'] = _STATERESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -349,6 +444,13 @@ StepRequest = _reflection.GeneratedProtocolMessageType('StepRequest', (_message.
 _sym_db.RegisterMessage(StepRequest)
 _sym_db.RegisterMessage(StepRequest.CellStateEntry)
 
+Position = _reflection.GeneratedProtocolMessageType('Position', (_message.Message,), {
+  'DESCRIPTOR' : _POSITION,
+  '__module__' : 'simulator_pb2'
+  # @@protoc_insertion_point(class_scope:simulation.Position)
+  })
+_sym_db.RegisterMessage(Position)
+
 StateResponse = _reflection.GeneratedProtocolMessageType('StateResponse', (_message.Message,), {
 
   'EmissionsEntry' : _reflection.GeneratedProtocolMessageType('EmissionsEntry', (_message.Message,), {
@@ -371,6 +473,13 @@ StateResponse = _reflection.GeneratedProtocolMessageType('StateResponse', (_mess
     # @@protoc_insertion_point(class_scope:simulation.StateResponse.StateEntry)
     })
   ,
+
+  'CellMapEntry' : _reflection.GeneratedProtocolMessageType('CellMapEntry', (_message.Message,), {
+    'DESCRIPTOR' : _STATERESPONSE_CELLMAPENTRY,
+    '__module__' : 'simulator_pb2'
+    # @@protoc_insertion_point(class_scope:simulation.StateResponse.CellMapEntry)
+    })
+  ,
   'DESCRIPTOR' : _STATERESPONSE,
   '__module__' : 'simulator_pb2'
   # @@protoc_insertion_point(class_scope:simulation.StateResponse)
@@ -379,12 +488,14 @@ _sym_db.RegisterMessage(StateResponse)
 _sym_db.RegisterMessage(StateResponse.EmissionsEntry)
 _sym_db.RegisterMessage(StateResponse.VehiclesEntry)
 _sym_db.RegisterMessage(StateResponse.StateEntry)
+_sym_db.RegisterMessage(StateResponse.CellMapEntry)
 
 
 _STEPREQUEST_CELLSTATEENTRY._options = None
 _STATERESPONSE_EMISSIONSENTRY._options = None
 _STATERESPONSE_VEHICLESENTRY._options = None
 _STATERESPONSE_STATEENTRY._options = None
+_STATERESPONSE_CELLMAPENTRY._options = None
 
 _SIMULATOR = _descriptor.ServiceDescriptor(
   name='Simulator',
@@ -393,8 +504,8 @@ _SIMULATOR = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=602,
-  serialized_end=745,
+  serialized_start=785,
+  serialized_end=928,
   methods=[
   _descriptor.MethodDescriptor(
     name='start_simulation',
