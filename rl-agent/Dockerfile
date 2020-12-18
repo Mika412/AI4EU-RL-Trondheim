@@ -1,5 +1,4 @@
-
-FROM ubuntu 
+FROM ubuntu:18.04
 
 MAINTAINER Mykhaylo "mykhamarf17@gmail.com"
 
@@ -19,6 +18,8 @@ COPY ./requirements.txt ./
 
 RUN pip3 install -r requirements.txt
 
-COPY agent_pb2.py agent_pb2_grpc.py agent_actor.py agent_server.py config.json ./
+RUN apt-get install libglib2.0-0 -y
+copy model /model
+COPY tf_models.py agent_pb2.py agent_pb2_grpc.py agent_actor.py agent_server.py config.json ./
 
 ENTRYPOINT [ "python3","agent_server.py" ]

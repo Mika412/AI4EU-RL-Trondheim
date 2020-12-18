@@ -1,0 +1,63 @@
+{
+  "env": "custom_env",
+  "hiddens": [],
+  "lr": 0.001,
+  "model": {
+    "conv_activation": "elu",
+    "conv_filters": [
+      [
+        16,
+        [
+          2,
+          2
+        ],
+        1
+      ],
+      [
+        32,
+        [
+          2,
+          2
+        ],
+        1
+      ]
+    ],
+    "custom_model": "masked_actions_model",
+    "fcnet_activation": "elu",
+    "fcnet_hiddens": [
+      144,
+      64
+    ]
+  },
+  "multiagent": {
+    "policies": {
+      "default": [
+        "<class 'ray.rllib.policy.tf_policy_template.DQNTFPolicy'>",
+        "Dict(action_mask:Box(0, 1, (2,), uint8), extra:Box(0.0, 1.0, (36,), float32), obs:Box(0.0, 10.0, (16, 17, 3), float32))",
+        "Discrete(2)",
+        {}
+      ],
+      "policy_1": [
+        "<class 'ray.rllib.policy.tf_policy_template.DQNTFPolicy'>",
+        "Dict(action_mask:Box(0, 1, (2,), uint8), extra:Box(0.0, 1.0, (36,), float32), obs:Box(0.0, 10.0, (16, 17, 3), float32))",
+        "Discrete(2)",
+        {}
+      ],
+      "policy_2": [
+        "<class 'ray.rllib.policy.tf_policy_template.DQNTFPolicy'>",
+        "Dict(action_mask:Box(0, 1, (2,), uint8), extra:Box(0.0, 1.0, (36,), float32), obs:Box(0.0, 10.0, (16, 17, 3), float32))",
+        "Discrete(2)",
+        {}
+      ],
+      "policy_3": [
+        "<class 'ray.rllib.policy.tf_policy_template.DQNTFPolicy'>",
+        "Dict(action_mask:Box(0, 1, (2,), uint8), extra:Box(0.0, 1.0, (36,), float32), obs:Box(0.0, 10.0, (16, 17, 3), float32))",
+        "Discrete(2)",
+        {}
+      ]
+    },
+    "policy_mapping_fn": "<function policy_mapping at 0x7f179b70be18>"
+  },
+  "num_gpus": 1,
+  "num_workers": 24
+}

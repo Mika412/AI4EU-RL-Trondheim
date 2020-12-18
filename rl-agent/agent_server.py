@@ -22,9 +22,7 @@ class AgentServicer(agent_pb2_grpc.AgentServicer):
     def get_action(self, request, context):
 
         response = agent_pb2.StepRequest()
-
-        new_cell_state, response.numSteps = self.actor.get_action(
-            request.emissions, request.vehicles, request.state, request.currentStep
+        new_cell_state, response.numSteps = self.actor.get_action(request.cell_map, request.emissions, request.vehicles, request.state, request.currentStep
         )
 
         for key, value in new_cell_state.items():

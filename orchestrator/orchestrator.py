@@ -38,8 +38,8 @@ def main():
             emissionsState = sim_request_stub.step(agent_actions)
 
         #
-        except Exception:
-            print("Got an exception")
+        except Exception as e:
+            print("Got an exception " , str(e))
             # do not spam
             time.sleep(2)
 

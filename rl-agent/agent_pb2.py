@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   syntax='proto3',
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_pb=b'\n\x0b\x61gent.proto\x12\x05\x61gent\"\x88\x01\n\x0bStepRequest\x12\x10\n\x08numSteps\x18\x01 \x01(\x05\x12\x35\n\ncell_state\x18\x02 \x03(\x0b\x32!.agent.StepRequest.CellStateEntry\x1a\x30\n\x0e\x43\x65llStateEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x08:\x02\x38\x01\"\xe5\x02\n\rStateResponse\x12\x13\n\x0b\x63urrentStep\x18\x01 \x01(\x05\x12\x36\n\temissions\x18\x02 \x03(\x0b\x32#.agent.StateResponse.EmissionsEntry\x12\x34\n\x08vehicles\x18\x03 \x03(\x0b\x32\".agent.StateResponse.VehiclesEntry\x12.\n\x05state\x18\x04 \x03(\x0b\x32\x1f.agent.StateResponse.StateEntry\x12\x10\n\x08hasEnded\x18\x05 \x01(\x08\x1a\x30\n\x0e\x45missionsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x02:\x02\x38\x01\x1a/\n\rVehiclesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x05:\x02\x38\x01\x1a,\n\nStateEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x05:\x02\x38\x01\x32?\n\x05\x41gent\x12\x36\n\nget_action\x12\x14.agent.StateResponse\x1a\x12.agent.StepRequestb\x06proto3'
+  serialized_pb=b'\n\x0b\x61gent.proto\x12\x05\x61gent\"\x88\x01\n\x0bStepRequest\x12\x10\n\x08numSteps\x18\x01 \x01(\x05\x12\x35\n\ncell_state\x18\x02 \x03(\x0b\x32!.agent.StepRequest.CellStateEntry\x1a\x30\n\x0e\x43\x65llStateEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x08:\x02\x38\x01\" \n\x08Position\x12\t\n\x01x\x18\x01 \x01(\x05\x12\t\n\x01y\x18\x02 \x01(\x05\"\xdb\x03\n\rStateResponse\x12\x13\n\x0b\x63urrentStep\x18\x01 \x01(\x05\x12\x36\n\temissions\x18\x02 \x03(\x0b\x32#.agent.StateResponse.EmissionsEntry\x12\x34\n\x08vehicles\x18\x03 \x03(\x0b\x32\".agent.StateResponse.VehiclesEntry\x12.\n\x05state\x18\x04 \x03(\x0b\x32\x1f.agent.StateResponse.StateEntry\x12\x33\n\x08\x63\x65ll_map\x18\x05 \x03(\x0b\x32!.agent.StateResponse.CellMapEntry\x12\x10\n\x08hasEnded\x18\x06 \x01(\x08\x1a\x30\n\x0e\x45missionsEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x02:\x02\x38\x01\x1a/\n\rVehiclesEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x05:\x02\x38\x01\x1a,\n\nStateEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\x05:\x02\x38\x01\x1a?\n\x0c\x43\x65llMapEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x1e\n\x05value\x18\x02 \x01(\x0b\x32\x0f.agent.Position:\x02\x38\x01\x32?\n\x05\x41gent\x12\x36\n\nget_action\x12\x14.agent.StateResponse\x1a\x12.agent.StepRequestb\x06proto3'
 )
 
 
@@ -102,6 +102,45 @@ _STEPREQUEST = _descriptor.Descriptor(
 )
 
 
+_POSITION = _descriptor.Descriptor(
+  name='Position',
+  full_name='agent.Position',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='x', full_name='agent.Position.x', index=0,
+      number=1, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='y', full_name='agent.Position.y', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=161,
+  serialized_end=193,
+)
+
+
 _STATERESPONSE_EMISSIONSENTRY = _descriptor.Descriptor(
   name='EmissionsEntry',
   full_name='agent.StateResponse.EmissionsEntry',
@@ -136,8 +175,8 @@ _STATERESPONSE_EMISSIONSENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=376,
-  serialized_end=424,
+  serialized_start=463,
+  serialized_end=511,
 )
 
 _STATERESPONSE_VEHICLESENTRY = _descriptor.Descriptor(
@@ -174,8 +213,8 @@ _STATERESPONSE_VEHICLESENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=426,
-  serialized_end=473,
+  serialized_start=513,
+  serialized_end=560,
 )
 
 _STATERESPONSE_STATEENTRY = _descriptor.Descriptor(
@@ -212,8 +251,46 @@ _STATERESPONSE_STATEENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=475,
-  serialized_end=519,
+  serialized_start=562,
+  serialized_end=606,
+)
+
+_STATERESPONSE_CELLMAPENTRY = _descriptor.Descriptor(
+  name='CellMapEntry',
+  full_name='agent.StateResponse.CellMapEntry',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='agent.StateResponse.CellMapEntry.key', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='agent.StateResponse.CellMapEntry.value', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=b'8\001',
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=608,
+  serialized_end=671,
 )
 
 _STATERESPONSE = _descriptor.Descriptor(
@@ -253,8 +330,15 @@ _STATERESPONSE = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
     _descriptor.FieldDescriptor(
-      name='hasEnded', full_name='agent.StateResponse.hasEnded', index=4,
-      number=5, type=8, cpp_type=7, label=1,
+      name='cell_map', full_name='agent.StateResponse.cell_map', index=4,
+      number=5, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='hasEnded', full_name='agent.StateResponse.hasEnded', index=5,
+      number=6, type=8, cpp_type=7, label=1,
       has_default_value=False, default_value=False,
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -262,7 +346,7 @@ _STATERESPONSE = _descriptor.Descriptor(
   ],
   extensions=[
   ],
-  nested_types=[_STATERESPONSE_EMISSIONSENTRY, _STATERESPONSE_VEHICLESENTRY, _STATERESPONSE_STATEENTRY, ],
+  nested_types=[_STATERESPONSE_EMISSIONSENTRY, _STATERESPONSE_VEHICLESENTRY, _STATERESPONSE_STATEENTRY, _STATERESPONSE_CELLMAPENTRY, ],
   enum_types=[
   ],
   serialized_options=None,
@@ -271,8 +355,8 @@ _STATERESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=162,
-  serialized_end=519,
+  serialized_start=196,
+  serialized_end=671,
 )
 
 _STEPREQUEST_CELLSTATEENTRY.containing_type = _STEPREQUEST
@@ -280,10 +364,14 @@ _STEPREQUEST.fields_by_name['cell_state'].message_type = _STEPREQUEST_CELLSTATEE
 _STATERESPONSE_EMISSIONSENTRY.containing_type = _STATERESPONSE
 _STATERESPONSE_VEHICLESENTRY.containing_type = _STATERESPONSE
 _STATERESPONSE_STATEENTRY.containing_type = _STATERESPONSE
+_STATERESPONSE_CELLMAPENTRY.fields_by_name['value'].message_type = _POSITION
+_STATERESPONSE_CELLMAPENTRY.containing_type = _STATERESPONSE
 _STATERESPONSE.fields_by_name['emissions'].message_type = _STATERESPONSE_EMISSIONSENTRY
 _STATERESPONSE.fields_by_name['vehicles'].message_type = _STATERESPONSE_VEHICLESENTRY
 _STATERESPONSE.fields_by_name['state'].message_type = _STATERESPONSE_STATEENTRY
+_STATERESPONSE.fields_by_name['cell_map'].message_type = _STATERESPONSE_CELLMAPENTRY
 DESCRIPTOR.message_types_by_name['StepRequest'] = _STEPREQUEST
+DESCRIPTOR.message_types_by_name['Position'] = _POSITION
 DESCRIPTOR.message_types_by_name['StateResponse'] = _STATERESPONSE
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -301,6 +389,13 @@ StepRequest = _reflection.GeneratedProtocolMessageType('StepRequest', (_message.
   })
 _sym_db.RegisterMessage(StepRequest)
 _sym_db.RegisterMessage(StepRequest.CellStateEntry)
+
+Position = _reflection.GeneratedProtocolMessageType('Position', (_message.Message,), {
+  'DESCRIPTOR' : _POSITION,
+  '__module__' : 'agent_pb2'
+  # @@protoc_insertion_point(class_scope:agent.Position)
+  })
+_sym_db.RegisterMessage(Position)
 
 StateResponse = _reflection.GeneratedProtocolMessageType('StateResponse', (_message.Message,), {
 
@@ -324,6 +419,13 @@ StateResponse = _reflection.GeneratedProtocolMessageType('StateResponse', (_mess
     # @@protoc_insertion_point(class_scope:agent.StateResponse.StateEntry)
     })
   ,
+
+  'CellMapEntry' : _reflection.GeneratedProtocolMessageType('CellMapEntry', (_message.Message,), {
+    'DESCRIPTOR' : _STATERESPONSE_CELLMAPENTRY,
+    '__module__' : 'agent_pb2'
+    # @@protoc_insertion_point(class_scope:agent.StateResponse.CellMapEntry)
+    })
+  ,
   'DESCRIPTOR' : _STATERESPONSE,
   '__module__' : 'agent_pb2'
   # @@protoc_insertion_point(class_scope:agent.StateResponse)
@@ -332,12 +434,14 @@ _sym_db.RegisterMessage(StateResponse)
 _sym_db.RegisterMessage(StateResponse.EmissionsEntry)
 _sym_db.RegisterMessage(StateResponse.VehiclesEntry)
 _sym_db.RegisterMessage(StateResponse.StateEntry)
+_sym_db.RegisterMessage(StateResponse.CellMapEntry)
 
 
 _STEPREQUEST_CELLSTATEENTRY._options = None
 _STATERESPONSE_EMISSIONSENTRY._options = None
 _STATERESPONSE_VEHICLESENTRY._options = None
 _STATERESPONSE_STATEENTRY._options = None
+_STATERESPONSE_CELLMAPENTRY._options = None
 
 _AGENT = _descriptor.ServiceDescriptor(
   name='Agent',
@@ -346,8 +450,8 @@ _AGENT = _descriptor.ServiceDescriptor(
   index=0,
   serialized_options=None,
   create_key=_descriptor._internal_create_key,
-  serialized_start=521,
-  serialized_end=584,
+  serialized_start=673,
+  serialized_end=736,
   methods=[
   _descriptor.MethodDescriptor(
     name='get_action',

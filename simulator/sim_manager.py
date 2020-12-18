@@ -188,6 +188,17 @@ class SimulationManager:
                 self.env.cells.open_cell(cell_id)
                 self.current_closed_state[cell_id] = False
 
+    def get_cells_map(self):
+        cell_map = {}
+        for cell_id in self.env.cells.cells:
+           pos = {}
+           cell_obj = self.env.cells.cells[cell_id]
+           pos['x'] = cell_obj.matrixPosX
+           pos['y'] = cell_obj.matrixPosY
+           cell_map[cell_id] = pos
+
+        return cell_map
+                
     def current_step(self):
         return int(self.env.sim_step)
 

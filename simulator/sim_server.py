@@ -35,10 +35,16 @@ class SimulationServicer(simulator_pb2_grpc.SimulatorServicer):
             response.state[key] = value
 
         response.currentStep = self.manager.current_step()
-        response.hasEnded = self.manager.has_ended()
 
+        cell_map = self.manager.get_cells_map()
+        for key, value in cell_map.items():
+            response.cell_map[key].x = value['x']
+            response.cell_map[key].y = value['y']
+
+        response.hasEnded = self.manager.has_ended()
         return response
 
+    
     def step(self, request, context):
         # define the buffer of the response :
         response = simulator_pb2.StateResponse()
@@ -61,6 +67,10 @@ class SimulationServicer(simulator_pb2_grpc.SimulatorServicer):
         response.currentStep = self.manager.current_step()
         response.hasEnded = self.manager.has_ended()
 
+        cell_map = self.manager.get_cells_map()
+        for key, value in cell_map.items():
+            response.cell_map[key].x = value['x']
+            response.cell_map[key].y = value['y']
         return response
 
 
