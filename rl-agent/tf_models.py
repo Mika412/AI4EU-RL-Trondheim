@@ -10,7 +10,6 @@ from ray.rllib.utils.framework import get_activation_fn
 
 """ If `conv_filters` provided will generate CNN, otherwise MLP. """
 
-
 class MaskedActionsCNN(DistributionalQTFModel, TFModelV2):
     def __init__(
         self, obs_space, action_space, num_outputs, model_config, name, **kwargs

@@ -1,6 +1,6 @@
 ## Overview
 
-This is repository contains an implementation of the [Thesis ](https://fenix.tecnico.ulisboa.pt/cursos/meic-t/dissertacao/846778572212554) directed to the AI4EU
+This is repository contains an implementation of [this](https://fenix.tecnico.ulisboa.pt/cursos/meic-t/dissertacao/846778572212554) thesis directed to the AI4EU
 platform.
 
 
@@ -9,7 +9,74 @@ Sumo simulator. The other one contains an RL agent acting on the environment.
 Aditionally an orchestrator was implemented to mimic the Acumos pipeline
 behaviour. 
 
+Generally in a gRPC service, the servicer send the response to the caller. Here,
+Acumos platform allows to reroute these calls/response to different services,
+creating a pipeline or a chain. This can then be deployed onto a Kubernetes
+cluster.
+
 ### Orchestrator
+
+An orchestrator is used to simulate the gRPC call re-routings made by the Acumos
+platform.
+
+<p align="center">
+  <img src="./images/acumos_connections_example.png">
+</p>
+
+### Simulator
+
+The simulator is a wrapper of the Sumo simulator, that provides more
+functionality. The simulator is directly targeted to Trondheim city, with the
+goal to study the traffic related emissions. It is possible to replace the used
+map. It is recommended to use OSMWebWizard to create the map. After that you
+need to generate the traffic, you can do it manually or use a tool like
+dfrouter.
+
+The simulator was then converted to a gRPC service. The currently implemented
+methods provide the basic information about the traffic and emissions. Two
+agents are provided as example to act on the environment. It is not mandatory to
+use any agent to act on the simulator. You can simply create a data sink to
+gather information from the simulator.
+
+Currently, you need to implement calls for these methods:
+
+
+```protobuf
+syntax = "proto3";
+
+package simulation;
+
+message InitRequest {
+    string StartDate      = 1 ;
+    string EndDate        = 2 ;
+    float DensityPerc     = 3 ;
+}
+
+message StepRequest {
+  int32 numSteps = 1;
+  map<string, bool> cell_state = 2;
+}
+
+message Position {
+    int32 x = 1;
+    int32 y = 2;
+}
+
+message StateResponse {
+  int32 currentStep = 1;
+  map<string, float> emissions = 2;
+  map<string, int32> vehicles = 3;
+  map<string, int32> state = 4;
+  map<string, Position> cell_map = 5;
+  bool hasEnded = 6;
+}
+
+//Define the service
+service Simulator{
+  rpc start_simulation(InitRequest) returns (StateResponse);
+  rpc step(StepRequest) returns (StateResponse);
+}
+```
 
 ## Adding new agent
 
@@ -38,7 +105,7 @@ docker image.
 
 ## Training an agent
 
-In the `./simulator/src/experiments` you'll find an example on how to train an
+The full version of the simulator can be found [here](https://fenix.tecnico.ulisboa.pt/cursos/meic-t/dissertacao/846778572212554). In the `./examples/rl/` you'll find an example on how to train an
 RL Agent. The current implementation uses RLlib framework to train the agent.
 The simulator is modeled as a Gym Environment in the `custom_env.py`. It's there
 where you specify the observation and the reward function. In the `train.py` is
@@ -51,7 +118,24 @@ modify the `train.py`.
 If you're running the Sumo simulator with libsumo, you
 won't be able to use the Stable Baseline implementations.
 
+### Extending the simulator
 
+You can easily add new service calls to the simulator by modifiying the `simulator.proto` and implementing the simulator servicer. After this, you should also add the reverse version of the call to the agents.
+
+Example of a call implementation:
+```protobuf
+//Define the service
+service Simulator{
+  rpc step(StepRequest) returns (StateResponse);
+}
+```
+
+```protobuf
+//Define the service
+service Agent {
+  rpc get_action(StateResponse) returns(StepRequest);
+}
+```
 ## Building
 
 After changing any protobuf file, run these commands to populate the correct
